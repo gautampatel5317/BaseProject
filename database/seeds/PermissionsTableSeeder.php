@@ -17,134 +17,134 @@ class PermissionsTableSeeder extends Seeder {
 		$permissions = [[
 				'id'         => '1',
 				'title'      => 'user_management_access',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '2',
 				'title'      => 'permission_create',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '3',
 				'title'      => 'permission_edit',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '4',
 				'title'      => 'permission_show',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '5',
 				'title'      => 'permission_delete',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '6',
 				'title'      => 'permission_access',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '7',
 				'title'      => 'role_create',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '8',
 				'title'      => 'role_edit',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '9',
 				'title'      => 'role_show',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '10',
 				'title'      => 'role_delete',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '11',
 				'title'      => 'role_access',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '12',
 				'title'      => 'user_create',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '13',
 				'title'      => 'user_edit',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '14',
 				'title'      => 'user_show',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '15',
 				'title'      => 'user_delete',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '16',
 				'title'      => 'user_access',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '17',
 				'title'      => 'product_create',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '18',
 				'title'      => 'product_edit',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '19',
 				'title'      => 'product_show',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '20',
 				'title'      => 'product_delete',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '21',
 				'title'      => 'product_access',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '22',
 				'title'      => 'edit-settings',
-				'created_at' => '2019-04-15 19:14:42',
-				'updated_at' => '2019-04-15 19:14:42',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
 			],
 			[
 				'id'         => '23',
@@ -166,299 +166,124 @@ class PermissionsTableSeeder extends Seeder {
 			],
 			[
 				'id'         => '26',
-				'title'      => 'customer_show',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'cms_access',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '27',
-				'title'      => 'customer_access',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'cms_create',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '28',
-				'title'      => 'customer_edit',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'cms_edit',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '29',
-				'title'      => 'customer_delete',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'cms_show',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '30',
-				'title'      => 'customer_create',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'cms_delete',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '31',
-				'title'      => 'cms_access',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'country_access',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '32',
-				'title'      => 'cms_create',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'country_create',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '33',
-				'title'      => 'cms_edit',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'country_edit',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '34',
-				'title'      => 'cms_show',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'country_show',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '35',
-				'title'      => 'cms_delete',
-				'created_at' => '2020-05-27 16:14:42',
-				'updated_at' => '2020-05-27 16:14:42',
+				'title'      => 'country_delete',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '36',
-				'title'      => 'country_access',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
+				'title'      => 'state_access',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '37',
-				'title'      => 'country_create',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
+				'title'      => 'state_create',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '38',
-				'title'      => 'country_edit',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
+				'title'      => 'state_edit',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '39',
-				'title'      => 'country_show',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
+				'title'      => 'state_show',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '40',
-				'title'      => 'country_delete',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
+				'title'      => 'state_delete',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
 			],
 			[
 				'id'         => '41',
-				'title'      => 'state_access',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
-			],
-			[
-				'id'         => '42',
-				'title'      => 'state_create',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
-			],
-			[
-				'id'         => '43',
-				'title'      => 'state_edit',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
-			],
-			[
-				'id'         => '44',
-				'title'      => 'state_show',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
-			],
-			[
-				'id'         => '45',
-				'title'      => 'state_delete',
-				'created_at' => '2020-06-02 16:14:42',
-				'updated_at' => '2020-06-02 16:14:42',
-			],
-			[
-				'id'         => '46',
 				'title'      => 'city_access',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
 			[
-				'id'         => '47',
+				'id'         => '42',
 				'title'      => 'city_create',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
 			[
-				'id'         => '48',
+				'id'         => '43',
 				'title'      => 'city_edit',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
 			[
-				'id'         => '49',
+				'id'         => '44',
 				'title'      => 'city_delete',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
 			[
-				'id'         => '50',
-				'title'      => 'ingredient_create',
+				'id'         => '45',
+				'title'      => 'view-front-end',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
-			[
-				'id'         => '51',
-				'title'      => 'ingredient_edit',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '52',
-				'title'      => 'ingredient_access',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '53',
-				'title'      => 'ingredient_show',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '54',
-				'title'      => 'ingredient_delete',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '55',
-				'title'      => 'experience_create',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '56',
-				'title'      => 'experience_edit',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '57',
-				'title'      => 'experience_access',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '58',
-				'title'      => 'experience_show',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id' => '59',
-
-				'title'      => 'experience_delete',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '60',
-				'title'      => 'interest_create',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '61',
-				'title'      => 'interest_edit',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '62',
-				'title'      => 'interest_access',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '63',
-				'title'      => 'interest_show',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id' 		 => '64',
-				'title'      => 'interest_delete',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '65',
-				'title'      => 'subscriptionname_create',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '66',
-				'title'      => 'subscriptionname_edit',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '67',
-				'title'      => 'subscriptionname_access',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '68',
-				'title'      => 'subscriptionname_show',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '69',
-				'title'      => 'subscriptionname_delete',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '70',
-				'title'      => 'subscriptiontype_create',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '71',
-				'title'      => 'subscriptiontype_edit',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '72',
-				'title'      => 'subscriptiontype_access',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '73',
-				'title'      => 'subscriptiontype_show',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			],
-			[
-				'id'         => '74',
-				'title'      => 'subscriptiontype_delete',
-				'created_at' => Carbon::now(),
-				'updated_at' => Carbon::now()
-			]
 		];
 		Permission::insert($permissions);
 		DB::statement('SET FOREIGN_KEY_CHECKS=1;');

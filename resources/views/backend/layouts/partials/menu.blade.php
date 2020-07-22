@@ -19,7 +19,7 @@
                         </p>
                     </a>
                 </li>
-                 @can('user_access')
+                @can('user_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.users.profile") }}" class="nav-link {{ request()->is('admin/profile') || request()->is('admin/profile/*') ? 'active' : '' }}">
                         <i class="fas fa-user">
@@ -30,30 +30,6 @@
                     </a>
                 </li>
                 @endcan
-                {{--  <li class="nav-item">
-                    <a href="{{ route('admin.video') }}" class="nav-link {{ request()->is('admin/video') || request()->is('admin/video/*') ? 'active' : '' }}">
-                        <p>
-                            <i class="fas fa-video"></i>
-                            <span>{{ trans('global.video') }}</span>
-                        </p>
-                    </a>
-                </li> --}}
-                {{--  <li class="nav-item">
-                    <a href="{{ route('admin.calander') }}" class="nav-link {{ request()->is('admin/calander') || request()->is('admin/calander') ? 'active' : '' }}">
-                        <p>
-                            <i class="far fa-calendar-times"></i>
-                            <span>{{ trans('global.calender') }}</span>
-                        </p>
-                    </a>
-                </li> --}}
-                {{--   <li class="nav-item">
-                    <a href="{{ route('admin.barcode') }}" class="nav-link {{ request()->is('admin/barcode') || request()->is('admin/barcode') ? 'active' : '' }}">
-                        <p>
-                            <i class="fas fa-barcode"></i>
-                            <span>{{ trans('global.qrcode') }}</span>
-                        </p>
-                    </a>
-                </li> --}}
                 @can('user_management_access')
                 <li class="nav-item has-treeview {{ request()->is('admin/permissions*') ? 'menu-open' : '' }} {{ request()->is('admin/roles*') ? 'menu-open' : '' }} {{ request()->is('admin/users*') ? 'menu-open' : '' }}" style="cursor: pointer;">
                     <a class="nav-link nav-dropdown-toggle">
@@ -117,16 +93,6 @@
                         </p>
                     </a>
                 </li>
-                @can('customer_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.customers.index") }}" class="nav-link {{ request()->is('admin/customers') || request()->is('admin/customers/*') ? 'active' : '' }}">
-                        <i class="fas fa-users-cog"></i>
-                        <p>
-                            <span>{{ trans('global.customer.title') }}</span>
-                        </p>
-                    </a>
-                </li>
-                @endcan
                 @can('cms_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.cms.index") }}" class="nav-link {{ request()->is('admin/cms') || request()->is('admin/cms/*') ? 'active' : '' }}">
@@ -135,7 +101,6 @@
                     </a>
                 </li>
                 @endcan
-
                 <li class="nav-item has-treeview {{ request()->is('admin/country*') ? 'menu-open' : '' }} {{ request()->is('admin/state*') ? 'menu-open' : '' }} {{ request()->is('admin/city*') ? 'menu-open' : '' }} {{ request()->is('admin/ingredient*') ? 'menu-open' : '' }} {{ request()->is('admin/subscriptionname*') ? 'menu-open' : '' }} {{ request()->is('admin/subscriptiontype*') ? 'menu-open' : '' }}  {{ request()->is('admin/experience*') ? 'menu-open' : '' }} {{ request()->is('admin/interest*') ? 'menu-open' : '' }}"  style="cursor: pointer;">
                     <a class="nav-link nav-dropdown-toggle">
                         <i class="fas fa-users">
@@ -170,46 +135,6 @@
                             </a>
                         </li>
                         @endcan
-                      {{--   @can('ingredient_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.ingredient.index") }}" class="nav-link {{ request()->is('admin/ingredient') || request()->is('admin/ingredient/*') ? 'active' : '' }}">
-                                    <i class="fa fa-exclamation-circle"></i>
-                                    <p><span>{{ trans('global.ingredient.title') }}</span></p>
-                                </a>
-                            </li>
-                        @endcan --}}
-                     {{--    @can('subscriptionname_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.subscriptionname.index") }}" class="nav-link {{ request()->is('admin/subscriptionname') || request()->is('admin/subscriptionname/*') ? 'active' : '' }}">
-                                    <i class="fa fa-envelope"></i>
-                                    <p><span>{{ trans('global.subscriptionname.title') }}</span></p>
-                                </a>
-                            </li>
-                        @endcan --}}
-                    {{--     @can('subscriptiontype_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.subscriptiontype.index") }}" class="nav-link {{ request()->is('admin/subscriptiontype') || request()->is('admin/subscriptiontype/*') ? 'active' : '' }}">
-                                    <i class="fa fa-envelope"></i>
-                                    <p><span>{{ trans('global.subscriptiontype.title') }}</span></p>
-                                </a>
-                            </li>
-                        @endcan
-                        @can('experience_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.experience.index") }}" class="nav-link {{ request()->is('admin/experience') || request()->is('admin/experience/*') ? 'active' : '' }}">
-                                    <i class="fas fa-level-up-alt"></i>
-                                    <p><span>{{ trans('global.experience.title') }}</span></p>
-                                </a>
-                            </li>
-                        @endcan --}}
-                {{--         @can('interest_access')
-                            <li class="nav-item">
-                                <a href="{{ route("admin.interest.index") }}" class="nav-link {{ request()->is('admin/interest') || request()->is('admin/interest/*') ? 'active' : '' }}">
-                                    <i class="fab fa-pinterest"></i>
-                                    <p><span>{{ trans('global.interest.title') }}</span></p>
-                                </a>
-                            </li>
-                        @endcan --}}
                     </ul>
                 </li>
                 <li class="nav-item">
