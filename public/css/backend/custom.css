@@ -1,0 +1,396 @@
+.brand-link{
+    padding: .68rem .5rem;
+}
+.brand-image{
+    margin-left: 0.7rem;
+    margin-right: .6rem;
+    max-height: 37px;
+}
+
+.cover-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.ck-editor__editable,
+textarea {
+    min-height: 150px;
+}
+
+.datatable {
+    width: 100% !important;
+}
+
+.dataTables_length,
+.dataTables_filter,
+.dt-buttons {
+    margin-bottom: 0.333em;
+}
+
+.dt-buttons .btn {
+    margin-left: 0.333em;
+    border-radius: 0;
+}
+
+.dt-buttons .dt-button{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    transition: all .15s ease 0s;
+    color: #fff;
+    background: #0062cc;
+    border-color: #005cbf;
+    text-transform: uppercase;
+ }
+ .dt-buttons{
+    margin-right: 0.333em;
+    margin-left: 7.333em;
+ }
+ .dt-buttons .dt-button:last-child{
+    margin-right:0;
+ }
+ .dt-buttons .dt-button:hover:not(.disabled),
+ .dt-buttons .dt-button:focus:not(.disabled),
+ .dt-buttons .dt-button:active:not(.disabled):hover:not(.disabled),
+ .dt-buttons .dt-button:active:not(.disabled){
+    color: #fff;
+    background: #0069d9;
+    border-color: #0062cc;
+ }
+ table.dataTable{
+     width:100% !important;
+ }
+ table.dataTable.no-footer{
+     border:1px solid #dee2e6;
+     
+ }
+ .dataTables_wrapper .dataTables_processing{
+    color: #fff;
+    height: inherit;    
+    font-size: 14px;    
+    background: #595858b5;   
+    z-index: 1;    
+    padding: 10px !important;
+ }
+/*  .dt-buttons .dt-button:focus:not(.disabled){
+    box-shadow: 0 1px 1px rgba(0,0,0,.075), 0 0 0 0.2rem rgba(0,123,255,.5);
+    outline: 0;
+ } */
+.table.datatable {
+    box-sizing: border-box;
+    border-collapse: collapse;
+}
+
+table.dataTable thead th {
+    border-bottom: 2px solid #dee2e6;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.select2 {
+    max-width: 100%;
+    width: 100% !important;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+    background-image: none;
+}
+
+.btn-group-xs > .btn,
+.btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.transparent-bg tr td {
+    text-align: center;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus{
+    border: 0;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    border: 0;
+    padding: 0;
+    margin-left: 0;
+}
+.sidebar-mini .brand-image{
+    opacity: 0;
+    max-width: 0;
+    transition:opacity .5s ease;
+}
+.sidebar-mini.sidebar-collapse .brand-image{
+    opacity: 1;
+    max-width: inherit;
+}
+.sidebar-mini.sidebar-collapse .main-sidebar:hover .brand-image{
+    opacity: 0;
+    max-width: 0;
+}
+
+.nav-link{
+    padding: .3rem 1rem;
+}
+/* .custom-input-group .form-control{
+    border-radius: .25rem !important;
+    padding-right: 50px;
+}
+.custom-input-group .input-group-append {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 0;
+    z-index: 3;
+    pointer-events: none;
+    cursor: pointer;
+} */
+
+.card-header{
+    min-height:49px;
+}
+
+/* Game listing css start */
+.game-listing-row{
+    margin-bottom:-30px;
+}
+.game-item{
+    margin-bottom: 30px;
+}
+.game-thumbnail-area{
+    overflow: hidden;
+    position: relative;
+}
+.game-thumbnail {
+    padding-top: 56.25%;
+    transition:transform 0.3s ease 0s;
+    -ms-transition:-ms-transform 0.3s ease 0s;
+}
+.game-thumbnail-area{
+    box-shadow: 0 0 3px 2px rgba(0,0,0, 0.2);
+}
+.game-item-title{  
+    font-size: 20px;
+    color: #0069d9;
+}
+.game-item-title:last-child{ 
+    margin-bottom: 0;
+}
+
+.game-item-box:hover .game-thumbnail, .game-item-box:focus .game-thumbnail{
+    transform: scale(1.1);
+    -ms-transform: scale(1.1);
+}
+.edit-delete-link{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background:rgba(255,255,255, 0.8);
+    padding: 10px;
+    border-radius: 0 0 0 20px;
+    box-shadow: 0 0 3px 2px rgba(0,0,0, 0.2);
+}
+/* Game listing css end */
+.game-filter label{
+    font-weight: normal !important;
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+.game-filter .form-control{
+    margin-left: 0.5em;
+    display: inline-block;
+    width: auto;
+}
+.search-box{
+    margin-top: 50px;
+}
+
+.game-pagination {
+    border-top: 1px solid rgba(0,0,0,.125);
+    padding-top: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+.game-item-assets p{
+    margin-bottom: 0;
+}
+.short-description{
+    font-size: 14px;
+}
+textarea.form-control {
+    height: 150px;
+    resize: none;
+}
+.custom-control-label{
+    font-weight: normal !important;
+}
+.custom-control-label:before,
+.custom-control-label:after{
+    left: -1.5rem; 
+}
+
+.custom-add-remove-row{
+    padding-right: 100px;
+    position: relative;
+}
+.custom-btn-assets{
+    position: absolute;
+    bottom:0;
+    right: 0;
+    width: 90px;
+}
+
+.remove-field-button{
+    margin-top: 32px;
+}
+
+.add-remove-table{
+    border: 0;
+    outline: 0;
+    padding: 0;
+
+}
+.add-remove-table td{
+    vertical-align: top;
+    padding: 0;
+}
+.custom-switch .custom-control-label{
+    cursor: pointer;
+}
+.custom-switch.custom-switch-off-danger .custom-control-input ~ .custom-control-label::before {
+    background: #dc3545;
+    border-color: #921925;
+}
+.custom-switch.custom-switch-off-danger .custom-control-input ~ .custom-control-label::after {
+    background: #7c151f;
+}
+.custom-switch.custom-switch-on-success .custom-control-input:checked ~ .custom-control-label::before {
+    background: #28a745;
+    border-color: #145523;
+}
+.custom-switch.custom-switch-on-success .custom-control-input:checked ~ .custom-control-label::after {
+    background: #86e29b;
+}
+/**
+ * Settings css
+ */
+ /* Tabs*/
+section {
+    padding: 60px 0;
+}
+
+section .section-title {
+    text-align: center;
+    color: #007b5e;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+#tabs{
+    background: #ffff;
+    color: #000000;
+}
+#tabs h6.section-title{
+    color: #2276ca;
+}
+
+#tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #2276ca;
+    background-color: transparent;
+    border-color: transparent transparent #2276ca;
+    border-bottom: 4px solid !important;
+    font-size: 20px;
+    font-weight: bold;
+}
+#tabs .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #2276ca;
+    font-size: 20px;
+}
+/*Custom Fileinputs start*/
+.custom-file-input input[type=file] { display: none; }
+.custom-file-input .inputfile + label { max-width: 100%; font-size: 14px; font-weight: 500 text-overflow: ellipsis; white-space: nowrap; cursor: pointer; display: inline-block; padding: 8px 12px; margin-bottom: 0; height: 36px; border:1px solid var(--theme-co) }
+.custom-file-input .inputfile + label .fa { margin-right: 10px; }
+.custom-file-input .inputfile:focus + label,.custom-file-input .inputfile.has-focus + label { outline: 1px dotted #000; outline: -webkit-focus-ring-color auto 5px; }
+
+/*Custom Fileinputs end*/
+@media (min-width: 576px){
+    .search-box{
+        width: 100%;
+        margin-top:0;
+        max-width: 340px;
+        position: absolute;
+        left: 1rem;
+        top: .5rem;
+    }
+}
+@media (min-width: 992px){
+    .dataTables_length{
+        margin-right: 5px;
+    }
+.sidebar-mini.sidebar-collapse .nav-sidebar .nav-link p {
+    width: 0;
+}
+.sidebar-mini.sidebar-collapse .main-sidebar {
+    overflow-x: hidden;
+}
+}
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single{
+    padding: 8px 12px;
+    height: 38px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    height: 33px;
+}
+.file {
+    visibility: hidden;
+    position: absolute;
+    height: 1px;
+  }
+  .company-logo{
+      width: 150px;
+      min-height: 40px;
+  }
+  .company-logo img{
+    max-width: 140px;
+    max-height: 140px;
+    margin: auto;
+  }
+  /**
+  * @author :Kamlesh Gupta <webworldgk@gmail.com>
+  * @date : 04 April 2020;
+  * @description : JQuery Validation css ;
+  */
+  .required::after {
+    padding-left: 3px;
+    color: #dc3545;
+    content: "*";
+    display: inline-block;
+}
+
+.validation-invalid-label {
+    color: #dc3545 !important;
+    display: none;
+    font-size: 14px;
+    margin-bottom: 0;
+    font-weight: 400 !important;
+}
+.invalid-feedback { font-weight: 400 !important; margin-bottom: 0;}

@@ -1,0 +1,54 @@
+version: '3.3'
+services:  
+# ticket_master-WebApps
+  ticket_master:
+    build:
+      context: ../
+      dockerfile: ./Docker/Dockerfile        
+    container_name: ticket_master
+    restart: always        
+    working_dir: /var/www
+    volumes:
+      - ../../Ticket5stars:/var/www
+      - ../../Ticket5stars/Docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ../Docker/logs/Ticket5stars/laravel:/var/www/storage/logs      
+    depends_on:
+      - mariadb
+    networks:
+      - ticketmaster_network     
+  web_server_ticket_master_service:
+    image: nginx:1.15.11
+    container_name: web_server_ticket_master_service
+    restart: always    
+    ports:
+      - "8080:80"      
+    volumes:
+      - ../../Ticket5stars:/var/www
+      - ../../Ticket5stars/Docker/nginx/conf.d/:/etc/nginx/conf.d/
+      - ../Docker/logs/Ticket5stars/nginx:/var/log/nginx      
+    networks:
+      - ticketmaster_network  
+  #MySQL Service
+  mariadb:
+    image: mariadb:10.4.4-bionic
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci
+    container_name: mariadb
+    restart: always    
+    ports:
+      - "3307:3306"
+    environment:         
+      MYSQL_DATABASE: ticketmaster       
+      MYSQL_ROOT_PASSWORD: Admin@123
+    volumes:
+      - ../Docker/dbdata:/var/lib/mysql/
+      - ../Docker/mysql/my.cnf:/etc/mysql/my.cnf
+      - ../Docker/mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - ticketmaster_network   
+#Docker Networks
+volumes:
+  esdata01:
+    driver: local
+networks:
+  ticketmaster_network:
+    driver: bridge
