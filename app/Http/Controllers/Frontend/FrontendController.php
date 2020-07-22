@@ -15,4 +15,11 @@ class FrontendController extends Controller {
 	public function index() {
 		return view('frontend.layouts.app');
 	}
+	/**
+	 * Registration
+	 */
+	public function registeration() {
+		return view('register');
+
+	}
 }

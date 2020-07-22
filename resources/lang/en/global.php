@@ -864,7 +864,7 @@ return [
 	'calender_anagement'        => "Calender Management",
 	'qrcode'                    => "QRCODE",
 	'cancel'                    => 'Cancel',
-	'welcome_to_ticket5Stars'   => 'Welcome To Ticket5Stars',
+	'welcome_to_ticket5Stars'   => 'Welcome To Admin Panel',
 	'settings'                  => "Settings",
 	'setting'                   => [
 		'seo_settings'             => 'SEO Settings',

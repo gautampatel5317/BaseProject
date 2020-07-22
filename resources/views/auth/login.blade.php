@@ -56,7 +56,7 @@
             </p>
             <p class="mb-1">
                  Not a member yet ?
-                <a class="" href="#">
+                <a class="" href="{{ route('registration') }}">
                  {{ trans('global.register') }}
                 </a>
             </p>
