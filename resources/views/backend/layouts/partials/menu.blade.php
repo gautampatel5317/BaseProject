@@ -93,16 +93,6 @@
                         </p>
                     </a>
                 </li>
-                @can('customer_access')
-                <li class="nav-item">
-                    <a href="{{ route("admin.customers.index") }}" class="nav-link {{ request()->is('admin/customers') || request()->is('admin/customers/*') ? 'active' : '' }}">
-                        <i class="fas fa-users-cog"></i>
-                        <p>
-                            <span>{{ trans('global.customer.title') }}</span>
-                        </p>
-                    </a>
-                </li>
-                @endcan
                 @can('cms_access')
                 <li class="nav-item">
                     <a href="{{ route("admin.cms.index") }}" class="nav-link {{ request()->is('admin/cms') || request()->is('admin/cms/*') ? 'active' : '' }}">
