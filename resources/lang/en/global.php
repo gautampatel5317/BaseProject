@@ -894,5 +894,21 @@ return [
 		'fields'             => [
 			'name'              => 'Interest',
 		],
-	],
+    ],
+    'products_management'   => 'Product Management',
+    'products'                   => [
+        'title_singular'             => 'Product',
+        'image' => 'Product Images',
+        'fields'             => [
+            'rate'              => 'Rate',
+            'sale_rate'              => 'Sale Rate',
+		],
+    ],
+    'select_category'   => 'Select Category',
+    'seller_name'   => 'Seller Name',
+    'select_seller'   => 'Select Seller',
+    'category_management'   => 'Category Management',
+    'category'                   => [
+        'title_singular' => 'Category',
+    ],
 ];
