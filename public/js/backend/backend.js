@@ -664,5 +664,51 @@ SubscriptionType: function(event) {
         });
         Backend.Validate.$validator = $validator;
     },
+    Category: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                name: {
+                    required: true                
+                },                       
+            },
+            messages: {
+                name: 'The Category name is required!',
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
+    Products: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                title: {required: true},
+                description: {required: true},
+                category_id: {required: true},
+                seller_id: {required: true},
+                rate: {required: true},
+                sale_rate: {required: true},
+            },
+            messages: {
+                name: 'The Product title is required!',
+                description: 'The Product description is required!',
+                category_id: 'The category is required!',
+                seller_id: 'The Seller is required!',
+                rate: 'The Rate is required!',
+                sale_rate: 'The Sale Rate is required!',
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
   }
 }

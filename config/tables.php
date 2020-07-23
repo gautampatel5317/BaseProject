@@ -49,4 +49,9 @@ return [
 	 * Level of Experience Tables
 	 */
     'levelof_experience_table' => 'levelof_experience',
+
+    'products_table' => 'products',
+    'products_image_table' => 'products_image',
+    'category_table' => 'category',
+    'seller_detail_table' => 'seller_detail',
 ];
