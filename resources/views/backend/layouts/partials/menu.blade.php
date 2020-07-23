@@ -137,6 +137,24 @@
                         @endcan
                     </ul>
                 </li>
+
+                @can('products_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                            <i class="fa fa-tags"></i>
+                            <p><span>{{ trans('global.products.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+                @can('category_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.category.index") }}" class="nav-link {{ request()->is('admin/category') || request()->is('admin/category/*') ? 'active' : '' }}">
+                            <i class="fa fa-list-alt"></i>
+                            <p><span>{{ trans('global.category.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>

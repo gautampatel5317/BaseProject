@@ -38,5 +38,9 @@ return [
     'ingredient_add_message'  => 'The Ingredient Warnings has been created successfully!',
     'ingredient_edit_message'   => 'The Ingredient Warnings has been updated successfully!',
     
+    'category_add_message' => 'The Category has been created successfully!',
+    'category_edit_message' => 'The Category has been updated successfully!',
+    'products_add_message' => 'The Product has been created successfully!',
+    'products_edit_message' => 'The Product has been updated successfully!',
 
 ];
