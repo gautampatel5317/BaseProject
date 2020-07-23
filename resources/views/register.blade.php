@@ -6,7 +6,8 @@
 			<div class="card">
 				<div class="card-header">{{ __('Register') }}</div>
 				<div class="card-body">
-					{{ Form::open(['route' => 'registration', 'class' => 'form-horizontal']) }}
+					  {!! Form::model(null, ['autocomplete' => 'off','id' => 'registerform','url' => route('registration'),'enctype'=> 'multipart/form-data','class'=>'form-validate-jquery']) !!}
+
 					<div class="form-group row">
 						{{ Form::label('', trans(''), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 						<div class="col-md-6">
@@ -30,31 +31,31 @@
 						<div class="form-group row">
 							{{ Form::label('first_name', trans('First Name').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('first_name', 'First Name', null, ['class' => 'form-control', 'placeholder' => trans('First Name')]) }}
+								{{ Form::input('first_name', 'first_name', null, ['id' => 'first_name','class' => 'form-control', 'placeholder' => trans('First Name')]) }}
 							</div>
 						</div>
 						<div class="form-group row">
 							{{ Form::label('last_name', trans('Last Name').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('last_name', 'Last Name', null, ['class' => 'form-control', 'placeholder' => trans('Last Name')]) }}
+								{{ Form::input('last_name', 'last_name', null, ['class' => 'form-control', 'placeholder' => trans('Last Name')]) }}
 							</div>
 						</div>
 						<div class="form-group row">
 							{{ Form::label('shop_name', trans('Shop Name').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('shop_name', 'Shop Name', null, ['class' => 'form-control', 'placeholder' => trans('Shop Name')]) }}
+								{{ Form::input('shop_name', 'shop_name', null, ['class' => 'form-control', 'placeholder' => trans('Shop Name')]) }}
 							</div>
 						</div>
 						<div class="form-group row">
 							{{ Form::label('shop_url', trans('Shop Url').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('shop_url', 'Shop Url', null, ['class' => 'form-control', 'placeholder' => trans('Shop Url')]) }}
+								{{ Form::input('shop_url', 'shop_url', null, ['class' => 'form-control', 'placeholder' => trans('Shop Url')]) }}
 							</div>
 						</div>
 						<div class="form-group row">
 							{{ Form::label('phone_number', trans('Phone Number').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('phone_number', 'Phone Number', null, ['class' => 'form-control', 'placeholder' => trans('Phone Number')]) }}
+								{{ Form::input('phone_number', 'phone_number', null, ['class' => 'form-control', 'placeholder' => trans('Phone Number')]) }}
 							</div>
 						</div>
 					</div>
@@ -74,13 +75,13 @@
 						<div class="form-group row">
 							{{ Form::label('first_name', trans('First Name').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('first_name', 'First Name', null, ['class' => 'form-control', 'placeholder' => trans('First Name')]) }}
+								{{ Form::input('first_name', 'first_name', null, ['class' => 'form-control', 'placeholder' => trans('First Name')]) }}
 							</div>
 						</div>
 						<div class="form-group row">
 							{{ Form::label('last_name', trans('Last Name').'*', ['class' => 'col-md-4 col-form-label text-md-right']) }}
 							<div class="col-md-6">
-								{{ Form::input('last_name', 'Last Name', null, ['class' => 'form-control', 'placeholder' => trans('Last Name')]) }}
+								{{ Form::input('last_name', 'last_name', null, ['class' => 'form-control', 'placeholder' => trans('Last Name')]) }}
 							</div>
 						</div>
 					</div>
@@ -99,6 +100,35 @@
 @section('scripts')
 <script type="text/javascript">
 	$(document).ready(function(){
+	$.validator.addMethod('requiredNotBlank', function(value, element) {
+    		return $.validator.methods.required.call(this, $.trim(value), element);
+		},'This field is required!');
+		$('#registerform').validate({
+			rules:{
+				 email: {
+                    required: true,
+                    email: true,
+                },
+                 password: {
+                    required: true,
+                },
+                 first_name:{
+                    requiredNotBlank: true,
+                },
+                last_name: {
+                    requiredNotBlank:true,
+                },
+                shop_name: {
+                     requiredNotBlank:true,
+                },
+                shop_url: {
+                     requiredNotBlank:true,
+                },
+                phone_number: {
+                    requiredNotBlank: true,
+                },
+			}
+		});
 		var type =  $("input[type=radio][name='type']:checked").val()
 		if(type ==0) {
 			$('.seller').show();

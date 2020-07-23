@@ -3778,8 +3778,8 @@ var Backend = {}; // common variable used in all the files of the backend
     }), a
 });
 /**
-@author : Kamelsh Gupta<webworldgk@gmail.com>
-@date :04th April 2020
+@author : Gautam Patel<webworldgk@gmail.com>
+@date :04th May 2020
 @description : core Js for utility, Validation and ajax call
 */
 
@@ -4440,5 +4440,50 @@ SubscriptionType: function(event) {
         });
         Backend.Validate.$validator = $validator;
     },
+            Registeration: function(event) {
+            var Rules = Backend.Validate.init;
+            var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",               
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,               
+                },
+                first_name:{
+                    required: true,
+                },
+                last_name: {
+                    required:true,
+                },
+                shop_name: {
+                     required:true,  
+                },
+                shop_url: {
+                     required:true,  
+                },
+                phone_number: {
+                    required: true,
+                },                
+            },
+            messages: {
+                email: 'The email field is required!',
+                password: 'The password field is required!',
+                first_name:'The first_name field is required!',            
+                last_name: 'The last_name field is required!'
+                shop_name: 'The shop_name field is required!'
+                shop_url: 'The shop_url field is required!'
+                phone_number: 'The phone_number field is required!'
+                
+            }
+        });
+        Backend.Validate.$validator = $validator;
+     }, 
   }
 }

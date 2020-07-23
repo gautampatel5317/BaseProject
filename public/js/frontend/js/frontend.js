@@ -26,7 +26,7 @@ var Frontend = {
             });
         },
         pagination: function(){
-            Backend.Utility.ajaxfetchData(1);
+            Frontend.Utility.ajaxfetchData(1);
             $(document).on("click",".page-link",function(event){
               event.preventDefault();
               var pages = $(this).text();              
@@ -38,7 +38,7 @@ var Frontend = {
               } else {
                 page = $(this).text();
               }
-              Backend.Utility.ajaxfetchData(page);
+              Frontend.Utility.ajaxfetchData(page);
           });
         },
         ajaxfetchData: function(page){
@@ -319,7 +319,7 @@ var Frontend = {
             },
         },   
         Registeration: function(event) {
-            var Rules = Backend.Validate.init;
+            var Rules = Frontend.Validate.init;
             var $validator = $(".form-validate-jquery").validate({
             errorClass: Rules.errorClass,
             highlight: Rules.highlight,
@@ -361,7 +361,7 @@ var Frontend = {
                 
             }
         });
-        Backend.Validate.$validator = $validator;
+        Frontend.Validate.$validator = $validator;
      },        
   }
 }
