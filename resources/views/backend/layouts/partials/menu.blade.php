@@ -2,7 +2,8 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link text-center" style="height: 90px;">
         <img style="width: 100%;height:100%;" src="{{ \URL::to('images/site_logo.png') }}" alt="{{ trans('global.site_title') }}" class="brand-image">
-        <span class="brand-text font-weight-light"><img style="width: 156px;height:86px;" src="{{ \URL::to('images/site_logo.png') }}" alt="{{ trans('global.site_title') }}"></span>
+<
+
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
