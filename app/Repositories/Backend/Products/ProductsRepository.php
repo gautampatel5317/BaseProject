@@ -76,7 +76,7 @@ class ProductsRepository extends BaseRepository
 
     public function showProduct($id){
         return $this->model
-        ->select('products.*', 'category.name AS category_name', 'users.name AS seller_name')
+        ->select('products.*', 'category.name AS category_name', 'users.first_name AS seller_name')
         ->join('category', 'category.id', '=', 'products.category_id')
         ->join('users', 'users.id', '=', 'products.seller_id')
         ->find($id);
