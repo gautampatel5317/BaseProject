@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+@include('flash::message')
 <div class="login-box">
     <div class="login-logo">
         <div class="login-logo">

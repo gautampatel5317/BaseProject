@@ -121,6 +121,8 @@ return [
 			'id'                       => 'ID',
 			'id_helper'                => '',
 			'name'                     => 'Name',
+			'fname'                    => 'First Name',
+			'last_name'                => 'Last Name',
 			'name_helper'              => '',
 			'email'                    => 'Email',
 			'email_helper'             => '',

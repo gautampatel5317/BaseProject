@@ -8,6 +8,7 @@ Auth::routes(['register' => true]);
  */
 Route::group(['namespace' => 'Frontend'], function () {
 		Route::get('/registration', 'FrontendController@registeration')->name('registration');
+		Route::any('register', 'FrontendController@register')->name('register');
 	});
 
 /*

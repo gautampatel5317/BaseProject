@@ -23,11 +23,12 @@
                <div class="col-sm-12">
                   <div class="box-body">
                     <div class="table-responsive-lg data-table-wrapper">
-                        <table id="users_table" class="table  table-hover table-bordered datatable cell-border">
+                        <table id="users_table" class="table  table-hover table-bordered datatable cell-border" style="width: 100%;">
                         <thead>
                             <tr>
                               <th width="10"></th>
-                                <th>{{ trans('global.user.fields.name') }}</th>
+                                <th>{{ trans('First Name') }}</th>
+                                <th>{{ trans('Last Name') }}</th>
                                 <th>{{ trans('global.user.fields.email') }}</th>
                                 <th>{{ trans('global.user.fields.email_verified_at') }}</th>
                                 <th>{{ trans('global.user.fields.roles') }}</th>
@@ -39,8 +40,15 @@
                         </thead>
                         <thead>
                            <tr>
-                            <th><input type="text" class="form-control text-search" name="name" data-column="1" placeholder="{{ trans('global.user.fields.name') }}"></th>
-                            <th><input type="text" class="form-control text-search" name="email" data-column="2" placeholder="{{ trans('global.user.fields.email') }}"></th>
+                            <th>
+                              <input type="text" class="form-control text-search" name="first_name" data-column="1" placeholder="{{ trans('First Name') }}">
+                            </th>
+                             <th>
+                              <input type="text" class="form-control text-search" name="last_name" data-column="1" placeholder="{{ trans('Last Name') }}">
+                            </th>
+                            <th>
+                              <input type="text" class="form-control text-search" name="email" data-column="2" placeholder="{{ trans('global.user.fields.email') }}">
+                            </th>
                             <th></th>
                             <th>
                               <select class="form-control select2 select-filter" name="roles" data-column="4">
@@ -99,7 +107,8 @@ $(function () {
           },
           columns: [
               {data: 'checkbox', name:'{{ config('tables.users_table')}}.id',visible:false},
-              {data: 'name', name:'{{ config('tables.users_table')}}.name'},
+              {data: 'first_name', name:'{{ config('tables.users_table')}}.first_name'},
+              {data: 'last_name', name:'{{ config('tables.users_table')}}.last_name'},
               {data: 'email', name: '{{ config('tables.users_table')}}.email'},
               {data: 'email_verified_at', name: '{{ config('tables.users_table')}}.email_verified_at'},
               {data: 'roles', name: '{{ config('tables.roles_table')}}.title'},

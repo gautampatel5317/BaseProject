@@ -327,7 +327,10 @@ var Backend = {
             errorPlacement: Rules.errorPlacement,
             rules: {
                 vali: "required",
-                name: {
+                first_name: {
+                    required: true                
+                },
+                last_name: {
                     required: true                
                 },
                 email: {
@@ -661,50 +664,5 @@ SubscriptionType: function(event) {
         });
         Backend.Validate.$validator = $validator;
     },
-            Registeration: function(event) {
-            var Rules = Backend.Validate.init;
-            var $validator = $(".form-validate-jquery").validate({
-            errorClass: Rules.errorClass,
-            highlight: Rules.highlight,
-            unhighlight: Rules.unhighlight,
-            errorPlacement: Rules.errorPlacement,
-            rules: {
-                vali: "required",               
-                email: {
-                    required: true,
-                    email: true,
-                },
-                password: {
-                    required: true,               
-                },
-                first_name:{
-                    required: true,
-                },
-                last_name: {
-                    required:true,
-                },
-                shop_name: {
-                     required:true,  
-                },
-                shop_url: {
-                     required:true,  
-                },
-                phone_number: {
-                    required: true,
-                },                
-            },
-            messages: {
-                email: 'The email field is required!',
-                password: 'The password field is required!',
-                first_name:'The first_name field is required!',            
-                last_name: 'The last_name field is required!'
-                shop_name: 'The shop_name field is required!'
-                shop_url: 'The shop_url field is required!'
-                phone_number: 'The phone_number field is required!'
-                
-            }
-        });
-        Backend.Validate.$validator = $validator;
-     }, 
   }
 }

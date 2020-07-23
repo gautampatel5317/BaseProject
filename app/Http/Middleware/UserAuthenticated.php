@@ -15,7 +15,7 @@ class UserAuthenticated {
 	public function handle($request, Closure $next) {
 		if (Auth::check()) {
 			// if user end-user take him to his homepage
-			if (Auth::user()->roles()->first()->id == 2) {
+			if (Auth::user()->roles()->first()->id != 1) {
 				return $next($request);
 			} else {
 				return redirect('admin');
