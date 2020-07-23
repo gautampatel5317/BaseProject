@@ -18,6 +18,7 @@ class CreateCategoryTable extends Migration
             $table->string('name');
             $table->enum('status',['0','1']);
             $table->timestamps();
+            $table->softDeletes('deleted_at', 0);
             $table->bigInteger('created_by');
             $table->bigInteger('updated_by')->default('0');
         });
