@@ -25,7 +25,7 @@ class ProductsRepository extends BaseRepository
     public function getForDataTable()
     {
         return $this->model
-        ->select(config('tables.products_table').'.*', config('tables.category_table').'.name AS category_name', config('tables.users_table').'.first_name AS seller_name')
+        ->select(config('tables.products_table').'.*', config('tables.category_table').'.name AS category_name', config('tables.users_table').'.first_name AS seller_name', \DB::raw('(SELECT products_image.image FROM products_image WHERE products_image.product_id = products.id ORDER BY products_image.id DESC LIMIT 1) AS image'))
         ->join(config('tables.category_table'), config('tables.category_table').'.id', '=', config('tables.products_table').'.category_id')
         ->join(config('tables.users_table'), config('tables.users_table').'.id', '=', config('tables.products_table').'.seller_id')
         ->orderByDesc('id')->get();

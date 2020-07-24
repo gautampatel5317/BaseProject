@@ -696,16 +696,16 @@ SubscriptionType: function(event) {
                 description: {required: true},
                 category_id: {required: true},
                 seller_id: {required: true},
-                rate: {required: true},
-                sale_rate: {required: true},
+                rate: {required: true, number: true},
+                sale_rate: {required: true, number: true},
             },
             messages: {
                 name: 'The Product title is required!',
                 description: 'The Product description is required!',
                 category_id: 'The category is required!',
                 seller_id: 'The Seller is required!',
-                rate: 'The Rate is required!',
-                sale_rate: 'The Sale Rate is required!',
+                rate: {required: 'The Rate is required!', number: 'Please enter a valid Rate'},
+                sale_rate: {required: 'The Sale Rate is required!', number: 'Please enter a valid Sale Rate'},
             }
         });
         Backend.Validate.$validator = $validator;

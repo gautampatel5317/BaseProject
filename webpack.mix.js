@@ -25,6 +25,7 @@ mix.js('resources/js/app.js', 'public/js')
       'public/css/backend/adminltev3.css',
       // 'public/css/backend/videojs-seek-buttons.css',
       'public/css/backend/custom.css',
+      'public/css/jquery.fancybox.css'
     ],'public/css/backend/backend-custom.css')
     .scripts([
       'public/js/backend/jquery-3.2.1.slim.min.js',
@@ -54,5 +55,6 @@ mix.js('resources/js/app.js', 'public/js')
         'public/js/main.js',
         'public/js/backend/admin.js',
         'public/js/backend/query.validate.min.js',
+        'public/js/jquery.fancybox.pack.js',
         'public/js/backend/backend.js'
     ],'public/js/backend/backend-custom.js');
