@@ -4561,5 +4561,34 @@ SubscriptionType: function(event) {
         });
         Backend.Validate.$validator = $validator;
     },
+    Seller: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                first_name: {required: true},
+                last_name: {required: true},
+                email: {required: true},
+                // password: {required: true},
+                shop_name: {required: true},
+                shop_url: {required: true},
+                phone_number: {required: true},
+            },
+            messages: {
+                first_name: 'The First name is required!',
+                last_name: 'The Last name is required!',
+                email: 'The Email is required!',
+                // password: 'The Password is required!',
+                shop_name: 'The Shop name is required!',
+                shop_url: 'The Shop url is required!',
+                phone_number: {required: 'The Phone number is required!'},
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
   }
 }

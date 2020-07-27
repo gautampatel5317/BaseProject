@@ -134,33 +134,37 @@
             image_advtab: true,
         });
         
-        $(document).on('click', '.delete_image', function(e) {
-            var image_name = $(this).attr('rel');
-            Swal.fire({
-                title: '{{ trans("global.areYouSure")}}',
-                text: '{{ trans("global.youWontbeAbletoDelete") }}',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: "{{ trans('global.yesDeleteIt') }}"
-            }).then((result) => {
-                if (result.value) {
-                    $(this).parent('div').remove();
-                    $.ajax({
-                        url: "{{URL('admin/products/deleteImage')}}",
-                        type: "POST",
-                        dataType: "json",
-                        cache: false,
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            'image_name': image_name,
-                            'product_id': '{{$products->id}}',
-                        }
-                    });
-                }
+        var product_id = '<?php echo isset($products) ? $products->id : "" ?>';
+        if( product_id != ""){
+            $(document).on('click', '.delete_image', function(e) {
+                var image_name = $(this).attr('rel');
+                Swal.fire({
+                    title: '{{ trans("global.areYouSure")}}',
+                    text: '{{ trans("global.youWontbeAbletoDelete") }}',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "{{ trans('global.yesDeleteIt') }}"
+                }).then((result) => {
+                    if (result.value) {
+                        $(this).parent('div').remove();
+                        $.ajax({
+                            url: "{{URL('admin/products/deleteImage')}}",
+                            type: "POST",
+                            dataType: "json",
+                            cache: false,
+                            data: {
+                                _token: '{{ csrf_token() }}',
+                                'image_name': image_name,
+                                'product_id': product_id,
+                            }
+                        });
+                    }
+                });
             });
-        });
+        }
+        
     });
 
     document.addEventListener("DOMContentLoaded", init, false);
