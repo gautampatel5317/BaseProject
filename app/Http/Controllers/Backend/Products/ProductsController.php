@@ -109,7 +109,7 @@ class ProductsController extends Controller
         $productImage = [];
         if (!empty($images)) {
             foreach ($images as $image) {
-                $productImage[] = $this->imageHttpPath."/". $id . "/" . $image->image;
+                $productImage[$image->image] = $this->imageHttpPath."/". $id . "/" . $image->image;
             }
         }
         return view('backend.products.edit', compact('products', 'categoryData', 'sellerData', 'productImage'));
@@ -174,6 +174,16 @@ class ProductsController extends Controller
         } else {
             return "failed";
         }
+    }
+
+    /**
+     * Delte product image from edit product page
+     */
+    public function deleteImage(Request $request){
+        $input = $request->except('_token');
+        DB::table('products_image')->where('image', '=', $input['image_name'])->delete();
+        File::delete($this->imagePath . '/' . $input['product_id'] . '/'.$input['image_name']);
+        return "success";
     }
 
 }

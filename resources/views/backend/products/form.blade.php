@@ -10,7 +10,7 @@
 
 <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
     <label for="description" class="required">{{ trans('global.description') }}</label>
-    <textarea id="description" name="description" class="form-control ckeditor">{{ old('description', isset($products) ? $products->description : '') }}</textarea>
+    <textarea id="description" name="description" class="form-control">{{ old('description', isset($products) ? $products->description : '') }}</textarea>
     @if($errors->has('description'))
     <p class="help-block">
         {{ $errors->first('description') }}
@@ -29,8 +29,11 @@
         <div class="img-remove-image">
             @if(isset($productImage) )
             <div class="row">
-                @foreach($productImage as $image)
-                <img class="col-lg-2 product_images" height="100" width="100" src="{{ $image }}">
+                @foreach($productImage as $imageID => $image)
+                <div class="col-lg-2 ">
+                    <a href="javascript:void(0);" class="delete_image" rel="{{$imageID}}"><i class="fa fa-times-circle float-right text-danger"></i></a>
+                    <img class="product_images" height="100" width="100" src="{{ $image }}">
+                </div>
                 @endforeach
             </div>
             @endif
@@ -124,6 +127,40 @@
 <script type="text/javascript">
     $(document).ready(function() {
         Backend.Validate.Products();
+
+        tinymce.init({
+            selector: 'textarea#description',
+            plugins: 'link image',
+            image_advtab: true,
+        });
+        
+        $(document).on('click', '.delete_image', function(e) {
+            var image_name = $(this).attr('rel');
+            Swal.fire({
+                title: '{{ trans("global.areYouSure")}}',
+                text: '{{ trans("global.youWontbeAbletoDelete") }}',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: "{{ trans('global.yesDeleteIt') }}"
+            }).then((result) => {
+                if (result.value) {
+                    $(this).parent('div').remove();
+                    $.ajax({
+                        url: "{{URL('admin/products/deleteImage')}}",
+                        type: "POST",
+                        dataType: "json",
+                        cache: false,
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            'image_name': image_name,
+                            'product_id': '{{$products->id}}',
+                        }
+                    });
+                }
+            });
+        });
     });
 
     document.addEventListener("DOMContentLoaded", init, false);

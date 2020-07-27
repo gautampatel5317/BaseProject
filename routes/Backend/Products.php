@@ -7,4 +7,5 @@ Route::group(['namespace' => 'Products'], function () {
 	//For Datatables
     Route::post('products/get', 'ProductsTableController')->name('products.get');
     Route::post('products/changeStatus', 'ProductsController@changeStatus');//For update status
+    Route::post('products/deleteImage', 'ProductsController@deleteImage');
 });
