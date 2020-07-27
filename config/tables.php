@@ -13,10 +13,6 @@ return [
 	 * Permissions table used to store users
 	 */
 	'permissions_table' => 'permissions',
-	/*
-	 * Products table used to store users
-	 */
-	'products_table' => 'products',
 	/**
 	 * Customers table used to store customers
 	 */
@@ -44,14 +40,16 @@ return [
 		'placeholders_table' => 'email_template_placeholders',
 		'types_table'        => 'email_template_types',
 		'table'              => 'email_templates'
-    ],
-    /**
+	],
+	/**
 	 * Level of Experience Tables
 	 */
-    'levelof_experience_table' => 'levelof_experience',
-
-    'products_table' => 'products',
-    'products_image_table' => 'products_image',
-    'category_table' => 'category',
-    'seller_detail_table' => 'seller_detail',
+	'levelof_experience_table' => 'levelof_experience',
+	/*
+	 * Products table used to store users
+	 */
+	'products_table'       => 'products',
+	'products_image_table' => 'products_image',
+	'category_table'       => 'category',
+	'seller_detail_table'  => 'seller_detail',
 ];

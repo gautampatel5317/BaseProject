@@ -2,6 +2,7 @@
 @section('header')
 @endsection
 @section('content')
+@include('flash::message')
 <div id="content" class="p-3 p-md-3 pt-3">
 	<div class="container-fluid">
 		<div class="card card-primary card-outline">
@@ -20,7 +21,7 @@
 						<div class="col-sm-12">
 							<div class="box-body">
 								<div class="table-responsive-lg data-table-wrapper">
-									<table id="billing_plans" class="table table-condensed table-hover table-bordered">
+									<table id="products" class="table table-condensed table-hover table-bordered">
 										<thead>
 											<tr>
 												<th scope="col" class="text-center">
@@ -49,56 +50,6 @@
 												</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
-												<td>Computer</td>
-												<td>Keyboard</td>
-												<td>
-													<img style="height: 40px;" src="https://rukminim1.flixcart.com/image/416/416/k226oi80/keyboard/laptop-keyboard/5/j/z/logitech-mk275-mouse-original-imafk89qfzrgnwzv.jpeg?q=70">
-												</td>
-												<td>With comfortable, quiet typing, a sleek yet sturdy design and a plug-and-play USB connection.</td>
-												<td>₹1500</td>
-												<td>₹1225.50</td>
-												<td><span class='badge badge-success'>Active</span></td>
-												<td>
-													<div class="btn-group action-btn">
-														<a href="" class="text-primary p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-edit"></i>
-														</a>&nbsp;
-														<a href="" class="text-primary p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-eye"></i>
-														</a>&nbsp;
-														<a href="" class="text-danger p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-trash"></i>
-														</a>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<td>Computer</td>
-												<td>Mouse</td>
-												<td>
-													<img style="height: 40px;" src="https://rukminim1.flixcart.com/image/416/416/mouse/m/b/s/amkette-kwik-pro-kp-10-usb-original-imaekwwrqkgxcdf2.jpeg?q=70">
-												</td>
-												<td>The Amkette Kwik Pro Optical Mouse is a premium and ergonomic mouse designed to perform at the highest level</td>
-												<td>₹270</td>
-												<td>₹225</td>
-												<td><span class='badge badge-danger'>Inactive</span></td>
-												<td>
-													<div class="btn-group action-btn">
-														<a href="" class="text-primary p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-edit"></i>
-														</a>&nbsp;
-														<a href="" class="text-primary p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-eye"></i>
-														</a>&nbsp;
-														<a href="" class="text-danger p2-2">
-															<i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-trash"></i>
-														</a>
-													</div>
-												</td>
-											</tr>
-										</tbody>
 									</table>
 								</div>
 							</div>
@@ -112,6 +63,43 @@
 @endsection
 @section('after-script')
 <script type="text/javascript">
+	$(function() {
+		var dataTable = $('#products').DataTable({
+			processing: true,
+			serverSide: true,
+			ajax: {
+                url: '{{ route("products.get") }}',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'post',
+                data: {status:status}
+            },
+            columns: [
+                {data: 'name', name: '{{ config('tables.category_table')}}.name'},
+                {data: 'title', name: '{{ config('tables.products_table')}}.title' },
+                {data: 'image', name: '{{ config('tables.products_image_table')}}.image' },
+                {data: 'description', name: '{{ config('tables.products_table')}}.description' },
+                {data: 'rate', name: '{{ config('tables.products_table')}}.rate' },
+                {data: 'sale_rate', name: '{{ config('tables.products_table')}}.sale_rate' },
+                {data: 'status', name: '{{ config('tables.products_table')}}.status' },
+                {data: 'actions', name: 'actions', searchable: false, sortable: false
+                },
+            ],
+            order: [],
+            searchDelay: 500,
+            dom: 'lBfrtip',
+            buttons: {
+                buttons: [
+                			{extend: 'copy',className: 'copyButton',exportOptions: {columns: [0, 1, 2, 3]}},
+                    		{extend: 'csv',className: 'csvButton',exportOptions: {columns: [0, 1, 2, 3]}},
+                    		{extend: 'excel',className: 'excelButton',exportOptions: {columns: [0, 1, 2, 3]}},
+                    		{extend: 'pdf',className: 'pdfButton',exportOptions: {columns: [0, 1, 2, 3]}}
+
+                ]
+            }
+		});
+	});
 	$(document).ready(function(){
 
 	});

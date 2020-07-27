@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend\Products;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Backend\Products\ProductsRepository;
+use App\Models\Category\Category;
+use App\Models\Products\Products;
+use App\Repositories\Frontend\Products\ProductsRepository;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller {
@@ -29,7 +31,10 @@ class ProductsController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		//
+		$categoryData = Category::where('status', '1')
+			->orderByDesc('id')
+			->get();
+		return view('frontend.products.create', compact('categoryData'));
 	}
 
 	/**
@@ -39,7 +44,13 @@ class ProductsController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-		//
+		$input = $request->except('_token');
+		$store = $this->repository->create($input);
+		if ($store) {
+			flash(trans('alerts.products_add_message'))->success()->important();
+
+		}
+		return redirect()->route('products');
 	}
 
 	/**
@@ -58,8 +69,11 @@ class ProductsController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id) {
-		//
+	public function edit(Products $products, Request $request) {
+		$categoryData = Category::where('status', '1')
+			->orderByDesc('id')
+			->get();
+		return view('frontend.products.edit', compact('categoryData', 'products'));
 	}
 
 	/**
