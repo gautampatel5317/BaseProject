@@ -37,7 +37,11 @@
                         @if(isset($productImage) )
                             <div class = "row">
                                 @foreach($productImage as $image)
-                                    <img class="col-lg-2" height="150" width="150" src="{{ $image }}">
+                                    <div class="col-lg-2">
+                                        <a class="fancybox" rel="gallery1" href="{{ $image }}">
+                                            <img src="{{ $image }}" height="150" width="150"/>
+                                        </a>
+                                    </div>
                                 @endforeach
                             </div>
                         @endif
@@ -51,4 +55,16 @@
             <a href="{{ route('admin.products.index') }}" class="btn btn-danger ml-2">{{ trans('global.back') }}</a>
         </div>
 </div>
+@endsection
+
+<!-- JAvascript Included-->
+@section('after-scripts')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox({
+            openEffect	: 'none',
+            closeEffect	: 'none'
+        });
+    });
+</script>
 @endsection

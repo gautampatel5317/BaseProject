@@ -13,7 +13,7 @@ class StoreProductsRequest extends FormRequest {
 
 	public function rules(Request $request) {
         $rules = [
-            'title' => 'required',
+            'title' => "required|unique:products,title",
             'description' => 'required',
             'category_id' => 'required',
             'seller_id' => 'required',

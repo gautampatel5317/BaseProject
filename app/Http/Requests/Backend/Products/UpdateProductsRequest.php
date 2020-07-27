@@ -16,7 +16,7 @@ class UpdateProductsRequest extends FormRequest
     public function rules(Request $request)
     {
         $rules = [
-            'title' => 'required',
+            'title' => "required|unique:products,title,{$request->id}",
             'description' => 'required',
             'category_id' => 'required',
             'seller_id' => 'required',
@@ -26,7 +26,7 @@ class UpdateProductsRequest extends FormRequest
         if(!empty($request->file('image'))) {
             $allowedfileExtension = ['jpg', 'png', 'jpeg'];
             foreach ($request->file('image') as $file) {
-                $extension = $file->getClientOriginalExtension();
+                $extension = strtolower($file->getClientOriginalExtension());
                 if (!in_array($extension, $allowedfileExtension)) {
                     $rules['image'] = 'image|mimes:jpeg,png';
                 }

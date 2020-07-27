@@ -35,6 +35,9 @@
                                                 {{ trans('global.title') }}
                                             </th>
                                             <th>
+                                                {{ trans('global.products.image') }}
+                                            </th>
+                                            <th>
                                                 {{ trans('global.category_name') }}
                                             </th>
                                             <th>
@@ -57,12 +60,13 @@
                                     <thead>
                                         <tr>
                                             <th><input type="text" class="form-control text-search" name="title" data-column="0" placeholder="{{ trans('global.title') }}"></th>
-                                            <th><input type="text" class="form-control text-search" name="category_name" data-column="1" placeholder="{{ trans('global.category_name') }}"></th>
-                                            <th><input type="text" class="form-control text-search" name="seller_name" data-column="2" placeholder="{{ trans('global.seller_name') }}"></th>
-                                            <th><input type="text" class="form-control text-search" name="rate" data-column="3" placeholder="{{ trans('global.products.fields.rate') }}"></th>
-                                            <th><input type="text" class="form-control text-search" name="sale_rate" data-column="4" placeholder="{{ trans('global.products.fields.sale_rate') }}"></th>
+                                            <th></th>
+                                            <th><input type="text" class="form-control text-search" name="category_name" data-column="2" placeholder="{{ trans('global.category_name') }}"></th>
+                                            <th><input type="text" class="form-control text-search" name="seller_name" data-column="3" placeholder="{{ trans('global.seller_name') }}"></th>
+                                            <th><input type="text" class="form-control text-search" name="rate" data-column="4" placeholder="{{ trans('global.products.fields.rate') }}"></th>
+                                            <th><input type="text" class="form-control text-search" name="sale_rate" data-column="5" placeholder="{{ trans('global.products.fields.sale_rate') }}"></th>
                                             <th>
-                                                <select class="form-control select2 select-filter" name="status" data-column="5">
+                                                <select class="form-control select2 select-filter" name="status" data-column="6">
                                                     <option value="All">{{ trans('global.all')}}</option>
                                                     <option value="1">{{ trans('global.active')}}</option>
                                                     <option value="0">{{ trans('global.inactive')}}</option>
@@ -99,6 +103,7 @@
             },
             columns: [
                 {data: 'title', name: 'title' },
+                {data: 'image', name: 'image' },
                 {data: 'category_name', name: 'category_name' },
                 {data: 'seller_name', name: 'seller_name' },
                 {data: 'rate', name: 'rate' },

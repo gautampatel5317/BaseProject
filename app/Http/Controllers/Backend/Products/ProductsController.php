@@ -24,7 +24,8 @@ class ProductsController extends Controller
     public function __construct(ProductsRepository $model)
     {
         $this->model = $model;
-        $this->imagePath = storage_path('images/products/');
+        $this->imagePath = public_path('images/product/');
+        $this->imageHttpPath = url('/images/product');
     }
 
     /**
@@ -86,7 +87,7 @@ class ProductsController extends Controller
         $productImage = [];
         if (!empty($images)) {
             foreach ($images as $image) {
-                $productImage[] = Storage::disk('public')->url('images/products/' . $id . "/" . $image->image);
+                $productImage[] = $this->imageHttpPath."/". $id . "/" . $image->image;
             }
         }
         abort_unless(\Gate::allows('products_show'), 403);
@@ -108,7 +109,7 @@ class ProductsController extends Controller
         $productImage = [];
         if (!empty($images)) {
             foreach ($images as $image) {
-                $productImage[] = Storage::disk('public')->url('images/products/' . $id . "/" . $image->image);
+                $productImage[] = $this->imageHttpPath."/". $id . "/" . $image->image;
             }
         }
         return view('backend.products.edit', compact('products', 'categoryData', 'sellerData', 'productImage'));
@@ -160,7 +161,7 @@ class ProductsController extends Controller
     {
         abort_unless(\Gate::allows('products_delete'), 403);
         $this->model->destroy($id);
-        File::deleteDirectory(storage_path('images/products/' . $id));
+        File::deleteDirectory($this->imagePath.$id);
         return "success";
     }
 
