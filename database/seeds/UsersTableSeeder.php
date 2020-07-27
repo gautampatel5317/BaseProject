@@ -7,7 +7,8 @@ class UsersTableSeeder extends Seeder {
 	public function run() {
 		$users = [[
 				'id'             => 1,
-				'name'           => 'Admin',
+				'first_name'     => 'admin',
+				'last_name'      => 'Admin',
 				'email'          => 'admin@admin.com',
 				'password'       => bcrypt('Admin@123'),
 				'remember_token' => null,

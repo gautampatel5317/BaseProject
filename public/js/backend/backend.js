@@ -1,6 +1,6 @@
 /**
-@author : Kamelsh Gupta<webworldgk@gmail.com>
-@date :04th April 2020
+@author : Gautam Patel<webworldgk@gmail.com>
+@date :04th May 2020
 @description : core Js for utility, Validation and ajax call
 */
 
@@ -327,7 +327,10 @@ var Backend = {
             errorPlacement: Rules.errorPlacement,
             rules: {
                 vali: "required",
-                name: {
+                first_name: {
+                    required: true                
+                },
+                last_name: {
                     required: true                
                 },
                 email: {
@@ -657,6 +660,52 @@ SubscriptionType: function(event) {
             },
             messages: {
                 name: 'The Interest field is required!',
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
+    Category: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                name: {
+                    required: true                
+                },                       
+            },
+            messages: {
+                name: 'The Category name is required!',
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
+    Products: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                title: {required: true},
+                description: {required: true},
+                category_id: {required: true},
+                seller_id: {required: true},
+                rate: {required: true, number: true},
+                sale_rate: {required: true, number: true},
+            },
+            messages: {
+                name: 'The Product title is required!',
+                description: 'The Product description is required!',
+                category_id: 'The category is required!',
+                seller_id: 'The Seller is required!',
+                rate: {required: 'The Rate is required!', number: 'Please enter a valid Rate'},
+                sale_rate: {required: 'The Sale Rate is required!', number: 'Please enter a valid Sale Rate'},
             }
         });
         Backend.Validate.$validator = $validator;

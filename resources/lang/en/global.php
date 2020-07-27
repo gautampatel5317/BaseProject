@@ -121,6 +121,8 @@ return [
 			'id'                       => 'ID',
 			'id_helper'                => '',
 			'name'                     => 'Name',
+			'fname'                    => 'First Name',
+			'last_name'                => 'Last Name',
 			'name_helper'              => '',
 			'email'                    => 'Email',
 			'email_helper'             => '',
@@ -864,7 +866,7 @@ return [
 	'calender_anagement'        => "Calender Management",
 	'qrcode'                    => "QRCODE",
 	'cancel'                    => 'Cancel',
-	'welcome_to_ticket5Stars'   => 'Welcome To Ticket5Stars',
+	'welcome_to_ticket5Stars'   => 'Welcome To Admin Panel',
 	'settings'                  => "Settings",
 	'setting'                   => [
 		'seo_settings'             => 'SEO Settings',
@@ -894,5 +896,21 @@ return [
 		'fields'             => [
 			'name'              => 'Interest',
 		],
-	],
+    ],
+    'products_management'   => 'Product Management',
+    'products'                   => [
+        'title_singular'             => 'Product',
+        'image' => 'Product Images',
+        'fields'             => [
+            'rate'              => 'Rate',
+            'sale_rate'              => 'Sale Rate',
+		],
+    ],
+    'select_category'   => 'Select Category',
+    'seller_name'   => 'Seller Name',
+    'select_seller'   => 'Select Seller',
+    'category_management'   => 'Category Management',
+    'category'                   => [
+        'title_singular' => 'Category',
+    ],
 ];

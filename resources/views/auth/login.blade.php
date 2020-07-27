@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+@include('flash::message')
 <div class="login-box">
     <div class="login-logo">
         <div class="login-logo">
@@ -56,7 +57,7 @@
             </p>
             <p class="mb-1">
                  Not a member yet ?
-                <a class="" href="#">
+                <a class="" href="{{ route('registration') }}">
                  {{ trans('global.register') }}
                 </a>
             </p>

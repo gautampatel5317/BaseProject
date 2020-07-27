@@ -394,3 +394,4 @@ section .section-title {
     font-weight: 400 !important;
 }
 .invalid-feedback { font-weight: 400 !important; margin-bottom: 0;}
+.error-block{color: #dc3545 !important;}

@@ -8,7 +8,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <style type="text/css">
+       .error {
+        color: red
+       }
+       input.error{
+            border-color: red;
+        }
+    </style>
     <!-- Scripts -->
 
 {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}

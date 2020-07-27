@@ -1,14 +1,16 @@
 <?php
+
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 /*
  * Customer Management
  */
-// Route::group(['namespace' => 'Frontend'], function () {
-// 		Route::any('customer/confirm/{customer}', 'Customer\CustomerController@confirmCustomer')->name('customer.confirm');
-// 		Route::resource('customer', 'Customer\CustomerController');
-// 	});
+Route::group(['namespace' => 'Frontend'], function () {
+		Route::get('/registration', 'FrontendController@registeration')->name('registration');
+		Route::any('register', 'FrontendController@register')->name('register');
+	});
+
 /*
  * Frontend Routes
  * Namespaces indicate folder structure

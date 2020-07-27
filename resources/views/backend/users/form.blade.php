@@ -1,9 +1,21 @@
-<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-    <label for="name">{{ trans('global.user.fields.name') }}*</label>
-    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($user) ? $user->name : '') }}">
-    @if($errors->has('name'))
+<div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">
+    <label for="first_name">{{ trans('First Name') }}*</label>
+    <input type="text" id="first_name" name="first_name" class="form-control" value="{{ old('first_name', isset($user) ? $user->first_name : '') }}" placeholder="First Name">
+    @if($errors->has('first_name'))
     <p class="help-block">
-        {{ $errors->first('name') }}
+        {{ $errors->first('first_name') }}
+    </p>
+    @endif
+    <p class="helper-block">
+        {{ trans('global.user.fields.name_helper') }}
+    </p>
+</div>
+<div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
+    <label for="last_name">{{ trans('Last Name') }}*</label>
+    <input type="text" id="last_name" name="last_name" class="form-control" value="{{ old('last_name', isset($user) ? $user->last_name : '') }}" placeholder="Last Name">
+    @if($errors->has('last_name'))
+    <p class="help-block">
+        {{ $errors->first('last_name') }}
     </p>
     @endif
     <p class="helper-block">
@@ -12,7 +24,7 @@
 </div>
 <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
     <label for="email">{{ trans('global.user.fields.email') }}*</label>
-    <input type="email" autocomplete="off" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}">
+    <input type="email" autocomplete="off" id="email" name="email" class="form-control" value="{{ old('email', isset($user) ? $user->email : '') }}" placeholder="Email Address">
     @if($errors->has('email'))
     <p class="help-block">
         {{ $errors->first('email') }}
@@ -24,7 +36,7 @@
 </div>
 <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
     <label for="password">{{ trans('global.user.fields.password') }}</label>
-    <input type="password" autocomplete="off" id="password" name="password" class="form-control">
+    <input type="password" autocomplete="off" id="password" name="password" class="form-control" placeholder="Password">
     @if($errors->has('password'))
     <p class="help-block">
         {{ $errors->first('password') }}

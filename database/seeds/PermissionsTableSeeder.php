@@ -284,6 +284,66 @@ class PermissionsTableSeeder extends Seeder {
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now()
 			],
+            [
+				'id'         => '46',
+				'title'      => 'products_access',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			],
+			[
+				'id'         => '47',
+				'title'      => 'products_create',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			],
+			[
+				'id'         => '48',
+				'title'      => 'products_edit',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			],
+			[
+				'id'         => '49',
+				'title'      => 'products_show',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			],
+			[
+				'id'         => '50',
+				'title'      => 'products_delete',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now()
+			],
+            [
+                'id'         => '51',
+                'title'      => 'category_access',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id'         => '52',
+                'title'      => 'category_create',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id'         => '53',
+                'title'      => 'category_edit',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id'         => '54',
+                'title'      => 'category_show',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
+            [
+                'id'         => '55',
+                'title'      => 'category_delete',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ],
 		];
 		Permission::insert($permissions);
 		DB::statement('SET FOREIGN_KEY_CHECKS=1;');

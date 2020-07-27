@@ -105,5 +105,14 @@ class UserRepository extends BaseRepository {
 	public function changeStatus($input) {
 		$updateStatus = User::where('id', $input['id'])->update(['status' => $input['status']]);
 		return true;
-	}
+    }
+    
+    public function getSellers(){
+        return $this->modal
+        ->select(config('tables.users_table').'.id', config('tables.users_table').'.first_name AS name')
+        ->join('role_user', 'users.id', '=', 'role_user.user_id')
+        ->join('roles', 'role_user.role_id', '=', 'roles.id')
+        ->where('roles.title', 'Seller')
+        ->orderByDesc('id')->get();
+    }
 }

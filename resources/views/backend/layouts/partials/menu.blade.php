@@ -1,8 +1,8 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="min-height: 917px;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
-    <a href="#" class="brand-link text-center" style="height: 90px;">
-        <img style="width: 100%;height:100%;" src="{{ $settings['logo'] }}" alt="{{ trans('global.site_title') }}" class="brand-image">
-        <span class="brand-text font-weight-light"><img style="width: 156px;height:86px;" src="{{ $settings['logo'] }}" alt="{{ trans('global.site_title') }}"></span>
+   <a href="#" class="brand-link text-center">
+        <img src="{{ \URL::to('images/site_logo.png') }}" alt="Know Escape" class="brand-image">
+        <span class="brand-text font-weight-light"><img style="width: 174px;height: 84px;" src="{{ \URL::to('images/site_logo.png') }}" alt="Base Project"></span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -137,6 +137,24 @@
                         @endcan
                     </ul>
                 </li>
+
+                @can('products_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
+                            <i class="fa fa-tags"></i>
+                            <p><span>{{ trans('global.products.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+                @can('category_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.category.index") }}" class="nav-link {{ request()->is('admin/category') || request()->is('admin/category/*') ? 'active' : '' }}">
+                            <i class="fa fa-list-alt"></i>
+                            <p><span>{{ trans('global.category.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>
