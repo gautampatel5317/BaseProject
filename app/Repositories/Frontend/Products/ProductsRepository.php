@@ -134,4 +134,13 @@ class ProductsRepository extends BaseRepository {
 		$statusChange = Products::where('id', $input['id'])->update(['status' => $input['status'], 'updated_by' => auth()->user()->id]);
 		return true;
 	}
+	/**
+	 * Get Products
+	 *
+	 * @return bool
+	 */
+	public function getProducts() {
+		$products = Products::with('ProductImage')->where("status", "=", "1")->get()->toArray();
+		return $products;
+	}
 }

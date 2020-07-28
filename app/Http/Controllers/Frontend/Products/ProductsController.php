@@ -23,6 +23,10 @@ class ProductsController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
+		if (auth()->user()->roles->first()->id == 3) {
+			$getProducts = $this->repository->getProducts();
+			return view('frontend.products.buyerproduct', compact('getProducts'));
+		}
 		return view('frontend.products.index');
 	}
 
