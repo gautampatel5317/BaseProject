@@ -44,5 +44,6 @@ return [
     'products_edit_message' => 'The Product has been updated successfully!',
     'seller_add_message' => 'The Seller has been created successfully!',
     'seller_edit_message' => 'The Seller has been updated successfully!',
-
+    'buyer_add_message' => 'The Buyer has been created successfully!',
+    'buyer_edit_message' => 'The Buyer has been updated successfully!',
 ];

@@ -922,5 +922,9 @@ return [
             'shop_url'              => 'Shop Url',
 		],
     ],
-    'phone_number'  => 'Phone Number'
+    'phone_number'  => 'Phone Number',
+    'buyer_management'   => 'Buyer Management',
+    'buyer'                   => [
+        'title_singular'             => 'Buyer',
+    ],
 ];

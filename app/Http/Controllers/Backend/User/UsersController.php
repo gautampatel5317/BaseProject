@@ -34,7 +34,9 @@ class UsersController extends Controller {
 		$userData = $users->get()->toArray();
 		$roles    = [];
 		foreach ($userData as $rolesKey => $roleValue) {
-			$roles[] = $roleValue['roles'][0]['title'];
+            if(isset($roleValue['roles'][0]['title'])){
+                $roles[] = $roleValue['roles'][0]['title'];
+            }
 		}
 		$roles = array_unique($roles);
 		return view('backend.users.index', compact('users', 'roles'));
