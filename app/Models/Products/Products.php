@@ -30,7 +30,7 @@ class Products extends Model {
 	 * @return $mix
 	 */
 	public function ProductImage() {
-		return $this->hasMany(ProductImage::class , 'id', 'product_id');
+		return $this->hasMany(ProductImage::class , 'product_id');
 	}
 
 }

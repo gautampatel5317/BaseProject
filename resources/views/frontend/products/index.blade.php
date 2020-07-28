@@ -101,7 +101,73 @@
 		});
 	});
 	$(document).ready(function(){
-
+		 $(document).on('click','.delete_record',function(e){
+		 	e.preventDefault();
+		 	var delId = jQuery(this).attr('data');
+		 	var that = this;
+		 	Swal.fire({
+		 		title: '{{ trans("global.areYouSure")}}',
+		 		text: '{{ trans("global.youWontbeAbletoDelete") }}',
+		 		icon: 'warning',
+		 		showCancelButton: true,
+		 		confirmButtonColor: '#3085d6',
+		 		cancelButtonColor: '#d33',
+		 		confirmButtonText: "{{ trans('global.yesDeleteIt') }}"
+		 	}).then((result) => {
+		 		if (result.value) {
+		 			   $.ajax({
+                        url: "{{ route('products.destroy') }}",
+                        type: "JSON",
+                        method:"POST",
+                        data:{product_id:delId,_token:'{{ csrf_token() }}', _method:"DELETE"},
+                        beforeSend:function(){
+                            $(that).html('{{ trans("global.deleting") }}');
+                        },
+                        success: function(dataResult){
+                            if(dataResult=="success"){
+                                setTimeout(function(){
+                                $('#products').DataTable().ajax.reload();
+                                    Swal.fire(
+                                    '{{ trans("global.deleted") }}',
+                                    '{{ trans("global.data_has_been_deleted") }}',
+                                    'success'
+                                    )
+                                }, 1000);
+                            }else{
+                                swal("{{ trans('global.error') }}", "{{ trans('global.something_Went_wrong') }}", "error");
+                            }
+                        }
+                    });
+		 		}
+		 	});
+		 });
+		 $(document).on('click','.change_status',function(e){
+		 	e.preventDefault();
+		 	var ID = jQuery(this).attr('data');
+            var status = $(this).prop('checked') == true ? 1 : 0;
+             $.ajax({
+                url: "{{route('products.status.change')}}",
+                type: "POST",
+                cache: false,
+                data:{
+                    _token:'{{ csrf_token() }}',
+                    'status': status,
+                    'id': ID
+                },
+                success: function(dataResult){
+                    if(dataResult=="success"){
+                        $('#products').DataTable().ajax.reload();
+                        Swal.fire(
+                        '{{ trans("global.done") }}',
+                        '{{ trans("global.status_updated_success") }}',
+                        'success'
+                        );
+                    }else{
+                        swal("{{ trans('global.error') }}", "{{ trans('global.something_Went_wrong') }}", "error");
+                    }
+                }
+            });
+		 });
 	});
 </script>
 @endsection

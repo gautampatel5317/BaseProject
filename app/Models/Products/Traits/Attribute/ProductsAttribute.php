@@ -10,7 +10,7 @@ trait ProductsAttribute {
 	 * @return string
 	 */
 	public function getActionButtonsAttribute() {
-		if (\Auth::user()->roles->first()->title == 'Sellers') {
+		if (\Auth::user()->roles->first()->title == 'Seller') {
 			$editRoute   = 'products.edit';
 			$deleteRoute = 'products.destroy';
 			$viewRoute   = 'products.show';

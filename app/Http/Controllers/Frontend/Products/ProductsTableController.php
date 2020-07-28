@@ -10,7 +10,9 @@ class ProductsTableController extends Controller {
 
 	protected $product;
 	public function __construct(ProductsRepository $product) {
-		$this->product = $product;
+		$this->product       = $product;
+		$this->imagePath     = public_path(config('path.upload.product'));
+		$this->imageHttpPath = url(config('path.upload.product'));
 	}
 
 	public function __invoke() {
@@ -19,11 +21,15 @@ class ProductsTableController extends Controller {
 			->escapeColumns(['category_id'])
 			->addColumn('image', function ($product) {
 				if (!empty($product->ProductImage)) {
-					$image = '<img style="height: 40px;" src="https://rukminim1.flixcart.com/image/416/416/mouse/m/b/s/amkette-kwik-pro-kp-10-usb-original-imaekwwrqkgxcdf2.jpeg?q=70">';
-				} else {
-					$image = '<img style="height: 40px;" src="https://rukminim1.flixcart.com/image/416/416/mouse/m/b/s/amkette-kwik-pro-kp-10-usb-original-imaekwwrqkgxcdf2.jpeg?q=70">';
+					$imageArr = $product->ProductImage->first();
+					if (file_exists($this->imagePath.$product->id.'/'.$imageArr->image)) {
+						$product_url = $this->imageHttpPath.'/'.$product->id.'/'.$imageArr->image;
+						return "<img src = '".$product_url."' width = '100px' >";
+					} else {
+						return '<div class="fa-stack fa-3x"><i class="fa fa-camera-retro fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x"></i></div>';
+					}
 				}
-				return $image;
+
 			})
 			->addColumn('status', function ($status) {
 				if ($status->status == "1") {

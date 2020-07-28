@@ -7,7 +7,6 @@
     </p>
     @endif
 </div>
-
 <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
     <label for="description" class="required">{{ trans('global.description') }}</label>
     <textarea id="description" name="description" class="form-control ckeditor">{{ old('description', isset($products) ? $products->description : '') }}</textarea>
@@ -17,7 +16,6 @@
     </p>
     @endif
 </div>
-
 <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
     <label for="image">{{ trans('global.products.image') }}</label>
     <div class="col-lg-10">
@@ -27,10 +25,10 @@
             <span>{{ trans('global.setting.choose_file') }}</span>
         </label>
         <div class="img-remove-image">
-            @if(isset($productImage) )
+            @if(isset($productImg) )
             <div class="row">
-                @foreach($productImage as $image)
-                <img class="col-lg-2 product_images" height="100" width="100" src="{{ $image }}">
+                @foreach($productImg as $image)
+                <img class="col-lg-2 product_images" height="100" width="100" src="{{ URL::to($image) }}">
                 @endforeach
             </div>
             @endif
@@ -42,7 +40,6 @@
     </p>
     @endif
 </div>
-
 <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
     <label for="category_id" class="required">{{ trans('global.category_name') }}</label>
     @php
@@ -69,7 +66,6 @@
     </p>
     @endif
 </div>
-
 <div class="form-group {{ $errors->has('sale_rate') ? 'has-error' : '' }}">
     <label for="sale_rate" class="required">{{ trans('global.products.fields.sale_rate') }}</label>
     <input type="text" name="sale_rate" id="sale_rate" sale_rate="sale_rate" class="form-control" value="{{ old('sale_rate', isset($products) ? $products->sale_rate : '') }}">
@@ -79,7 +75,6 @@
     </p>
     @endif
 </div>
-
 <div class="form-group">
     <label for="status">{{ trans('global.status') }}</label>
     @php
@@ -94,10 +89,8 @@
         <label class="custom-control-label" for="status2">{{ trans('global.inactive')}}</label>
     </div>
 </div>
-
 <div class="card-footer text-center">
     <a href="{{ route('products') }}" class="btn btn-danger ml-2">Cancel</a>
     <input class="btn btn-primary" type="submit" value="{{ isset($products)  ?  trans('global.update') :trans('global.save') }}">
 </div>
-
 <!-- JAvascript Included-->
