@@ -56,5 +56,6 @@ mix.js('resources/js/app.js', 'public/js')
         'public/js/backend/admin.js',
         'public/js/backend/query.validate.min.js',
         'public/js/jquery.fancybox.pack.js',
+        'public/js/tinymce/tinymce.min.js',
         'public/js/backend/backend.js'
     ],'public/js/backend/backend-custom.js');

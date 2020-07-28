@@ -155,6 +155,15 @@
                     </li>
                 @endcan
 
+                @can('seller_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.seller.index") }}" class="nav-link {{ request()->is('admin/seller') || request()->is('admin/seller/*') ? 'active' : '' }}">
+                            <i class="fa fa-industry"></i>
+                            <p><span>{{ trans('global.seller.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>

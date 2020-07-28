@@ -42,5 +42,7 @@ return [
     'category_edit_message' => 'The Category has been updated successfully!',
     'products_add_message' => 'The Product has been created successfully!',
     'products_edit_message' => 'The Product has been updated successfully!',
+    'seller_add_message' => 'The Seller has been created successfully!',
+    'seller_edit_message' => 'The Seller has been updated successfully!',
 
 ];

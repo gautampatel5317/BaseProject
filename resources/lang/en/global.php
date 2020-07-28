@@ -913,4 +913,14 @@ return [
     'category'                   => [
         'title_singular' => 'Category',
     ],
+    'email' => 'Email',
+    'seller_management'   => 'Seller Management',
+    'seller'                   => [
+        'title_singular'             => 'Seller',
+        'fields'             => [
+            'shop_name'              => 'Shop Name',
+            'shop_url'              => 'Shop Url',
+		],
+    ],
+    'phone_number'  => 'Phone Number'
 ];
