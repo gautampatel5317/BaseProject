@@ -164,6 +164,15 @@
                     </li>
                 @endcan
 
+                @can('buyer_access')
+                    <li class="nav-item">
+                        <a href="{{ route("admin.buyer.index") }}" class="nav-link {{ request()->is('admin/buyer') || request()->is('admin/buyer/*') ? 'active' : '' }}">
+                            <i class="fas fa-users"></i>
+                            <p><span>{{ trans('global.buyer.title_singular') }}</span></p>
+                        </a>
+                    </li>
+                @endcan
+
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                         <p>

@@ -4590,5 +4590,26 @@ SubscriptionType: function(event) {
         });
         Backend.Validate.$validator = $validator;
     },
+    Buyer: function(event) {
+        var Rules = Backend.Validate.init;
+        var $validator = $(".form-validate-jquery").validate({
+            errorClass: Rules.errorClass,
+            highlight: Rules.highlight,
+            unhighlight: Rules.unhighlight,
+            errorPlacement: Rules.errorPlacement,
+            rules: {
+                vali: "required",
+                email: {required: true},
+                first_name: {required: true},
+                last_name: {required: true},
+            },
+            messages: {
+                email: 'The Email is required!',
+                first_name: 'The First name is required!',
+                last_name: 'The Last name is required!',
+            }
+        });
+        Backend.Validate.$validator = $validator;
+    },
   }
 }
