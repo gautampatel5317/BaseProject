@@ -8,5 +8,5 @@ class ProductImage extends Model {
 	/**
 	 * $table Product_image
 	 */
-	protected $table = 'products_image';
+	protected $table = 'products_files';
 }

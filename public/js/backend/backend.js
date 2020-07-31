@@ -725,7 +725,7 @@ SubscriptionType: function(event) {
                 // password: {required: true},
                 shop_name: {required: true},
                 shop_url: {required: true},
-                phone_number: {required: true},
+                phone_number: {required: true,pattern : /^\+?[0-9]+$/},
             },
             messages: {
                 first_name: 'The First name is required!',
@@ -734,7 +734,7 @@ SubscriptionType: function(event) {
                 // password: 'The Password is required!',
                 shop_name: 'The Shop name is required!',
                 shop_url: 'The Shop url is required!',
-                phone_number: {required: 'The Phone number is required!'},
+                phone_number: {required: 'The Phone number is required!',pattern:'Phone Number allow only Number!'},
             }
         });
         Backend.Validate.$validator = $validator;

@@ -11,7 +11,7 @@ class UpdateProductsImageTable extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		Schema::create('products_image', function (Blueprint $table) {
+		Schema::create('products_files', function (Blueprint $table) {
 				$table->bigIncrements('id');
 				$table->unsignedInteger('product_id');
 				// $table->foreign('product_id')->references('id')->on('products');
@@ -26,6 +26,6 @@ class UpdateProductsImageTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('products_image');
+		Schema::dropIfExists('products_files');
 	}
 }

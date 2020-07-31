@@ -46,6 +46,28 @@
     @endif
 </div>
 
+<div class="form-group">
+    <label for="video">{{ trans('global.products.video') }}</label>
+    <div class="col-lg-10">
+        <input type="file" class="form-control" name="video[]" id="video" multiple />
+        <label for="video">
+            <i class="fa fa-upload"></i>
+            <span>{{ trans('global.setting.choose_file') }}</span>
+        </label>
+        <div class="img-remove-image">
+            @if(isset($productVideo) )
+            <div class="row">
+                @foreach($productVideo as $imageID => $image)
+                <div class="col-lg-10 ">
+                    {{ $image }}
+                </div>
+                @endforeach
+            </div>
+            @endif
+        </div>
+    </div>
+</div>
+
 <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
     <label for="category_id" class="required">{{ trans('global.category_name') }}</label>
     @php
@@ -71,6 +93,7 @@
     @endphp
     <select name="seller_id" class="form-control select2" name="seller_id">
         <option value="">{{ trans('global.select_seller') }}</option>
+        <option value="1">test</option>
         @foreach($sellerData as $data)
         <option value="{{ $data->id }}" {{ $selected_seller == $data->id ? 'selected' : '' }}>{{ $data->name }}</option>
         @endforeach
