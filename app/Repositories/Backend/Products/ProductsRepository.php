@@ -173,7 +173,11 @@ class ProductsRepository extends BaseRepository
         return $this->model->where('id', $id)
             ->update(['status' => $status, 'updated_by' => auth()->user()->id]);
     }
-
+    /**
+	 * Get Products
+	 *
+	 * @return bool
+	 */
     public function showProduct($id){
         return $this->model
         ->select('products.*', 'category.name AS category_name', 'users.first_name AS seller_name')

@@ -120,21 +120,21 @@
                         extend: 'copy',
                         className: 'copyButton',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6]
+                            columns: [0, 2, 3, 4, 5, 6]
                         }
                     },
                     {
                         extend: 'csv',
                         className: 'csvButton',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6]
+                            columns: [0, 2, 3, 4, 5, 6]
                         }
                     },
                     {
                         extend: 'excel',
                         className: 'excelButton',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6]
+                            columns: [0, 2, 3, 4, 5, 6]
                         }
                     },
                     {
@@ -148,7 +148,7 @@
                         extend: 'print',
                         className: 'printButton',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6]
+                            columns: [0, 2, 3, 4, 5, 6]
                         }
                     }
                 ]

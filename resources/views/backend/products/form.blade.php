@@ -49,7 +49,7 @@
 <div class="form-group">
     <label for="video">{{ trans('global.products.video') }}</label>
     <div class="col-lg-10">
-        <input type="file" class="form-control" name="video[]" id="video" multiple />
+        <input type="file" class="form-control" name="video[]" id="video" accept="video/*" multiple />
         <label for="video">
             <i class="fa fa-upload"></i>
             <span>{{ trans('global.setting.choose_file') }}</span>

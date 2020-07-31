@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-
+    /**
+	 * @var $model
+	 */
     protected $model;
     public function __construct(ProductsRepository $model)
     {
@@ -64,6 +66,12 @@ class ProductsController extends Controller
         flash(trans('alerts.products_add_message'))->success()->important();
         return redirect()->route('admin.products.index');
     }
+    /**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
     public function show($id)
     {
         $products = $this->model->showProduct($id);
@@ -138,6 +146,12 @@ class ProductsController extends Controller
         return "success";
     }
 
+    /**
+	 * Product Status Change
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
     public function changeStatus(Request $request)
     {
         $input = $request->except('_token');
