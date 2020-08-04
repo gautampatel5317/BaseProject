@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
-
+    /**
+	 * @var $model
+	 */
     protected $model;
     public function __construct(ProductsRepository $model)
     {
@@ -61,29 +63,19 @@ class ProductsController extends Controller
         abort_unless(\Gate::allows('products_create'), 403);
         $input = $request->except('_token');
         $insertedData = $this->model->create($input);
-        if (!empty($request->file('image'))) {
-            $files = $request->file('image');
-            $imagePath = $this->imagePath . $insertedData->id;
-            if (!File::isDirectory($imagePath)) {
-                File::makeDirectory($imagePath, 0777, true, true);
-            }
-            foreach ($files as $file) {
-                $imageName = str_replace(' ', '_', pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . "_" . time() . "." . $file->getClientOriginalExtension();
-                $uploaded = $file->move($imagePath, $imageName);
-                if ($uploaded) {
-                    DB::table('products_image')->insert(
-                        ['product_id' => $insertedData->id, 'image' => $imageName, 'created_at' => date('Y-m-d H:i:s')]
-                    );
-                }
-            }
-        }
         flash(trans('alerts.products_add_message'))->success()->important();
         return redirect()->route('admin.products.index');
     }
+    /**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
     public function show($id)
     {
         $products = $this->model->showProduct($id);
-        $images = DB::table('products_image')->where('product_id', $id)->get();
+        $images = DB::table('products_files')->where('product_id', $id)->get();
         $productImage = [];
         if (!empty($images)) {
             foreach ($images as $image) {
@@ -105,14 +97,21 @@ class ProductsController extends Controller
         $products = Products::find($id);
         $categoryData = $category->getCategorys();
         $sellerData = $user->getSellers();
-        $images = DB::table('products_image')->where('product_id', $id)->get();
+        $images = DB::table('products_files')->where('product_id', $id)->get();
         $productImage = [];
+        $productVideo = [];
         if (!empty($images)) {
             foreach ($images as $image) {
-                $productImage[$image->image] = $this->imageHttpPath."/". $id . "/" . $image->image;
+                $path_parts = pathinfo($image->image);
+                $fileExtension = $path_parts['extension'];
+                if(in_array($fileExtension,array('pdf', 'jpeg', 'png','jpg','bmp','gif','xls','xlsx','doc','docx','txt'))){
+                    $productImage[$image->image] = $this->imageHttpPath."/". $id . "/images/" . $image->image;
+                }else{
+                    $productVideo[] = $image->image;
+                }
             }
         }
-        return view('backend.products.edit', compact('products', 'categoryData', 'sellerData', 'productImage'));
+        return view('backend.products.edit', compact('products', 'categoryData', 'sellerData', 'productImage','productVideo'));
     }
     /**
      * Update the specified resource in storage.
@@ -129,24 +128,6 @@ class ProductsController extends Controller
             $input['status'] = '0';
         }
         $this->model->update($input, $id);
-
-        if (!empty($request->file('image'))) {
-            $files = $request->file('image');
-            $imagePath = $this->imagePath . $id;
-            if (!File::isDirectory($imagePath)) {
-                File::makeDirectory($imagePath, 0777, true, true);
-            }
-            foreach ($files as $file) {
-                $imageName = str_replace(' ', '_', pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . "_" . time() . "." . $file->getClientOriginalExtension();
-                $uploaded = $file->move($imagePath, $imageName);
-                if ($uploaded) {
-                    DB::table('products_image')->insert(
-                        ['product_id' => $id, 'image' => $imageName, 'created_at' => date('Y-m-d H:i:s')]
-                    );
-                }
-            }
-        }
-
         flash(trans('alerts.products_edit_message'))->success()->important();
         return redirect()->route('admin.products.index');
     }
@@ -165,6 +146,12 @@ class ProductsController extends Controller
         return "success";
     }
 
+    /**
+	 * Product Status Change
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
     public function changeStatus(Request $request)
     {
         $input = $request->except('_token');
@@ -181,7 +168,7 @@ class ProductsController extends Controller
      */
     public function deleteImage(Request $request){
         $input = $request->except('_token');
-        DB::table('products_image')->where('image', '=', $input['image_name'])->delete();
+        DB::table('products_files')->where('image', '=', $input['image_name'])->delete();
         File::delete($this->imagePath . '/' . $input['product_id'] . '/'.$input['image_name']);
         return "success";
     }

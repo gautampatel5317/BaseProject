@@ -10,14 +10,23 @@ trait ProductsAttribute {
 	 * @return string
 	 */
 	public function getActionButtonsAttribute() {
+		if (\Auth::user()->roles->first()->title == 'Seller') {
+			$editRoute   = 'products.edit';
+			$deleteRoute = 'products.destroy';
+			$viewRoute   = 'products.show';
+		} else {
+			$editRoute   = 'admin.products.edit';
+			$deleteRoute = 'admin.products.destroy';
+			$viewRoute   = 'admin.products.show';
+		}
 		return '<div class="btn-group action-btn">'.
 		$this->statusButton().
-        $this->editButton('edit-blog', 'admin.products.edit').
-        $this->view('products_show', 'admin.products.show').
-		$this->deleteButton('delete-blog', 'admin.products.destroy').
+		$this->editButton('edit-blog', $editRoute).
+		$this->view('products_show', $viewRoute).
+		$this->deleteButton('delete-blog', $deleteRoute).
 		'</div>';
-    }
-    /**
+	}
+	/**
 	 *
 	 * @param $permission
 	 * @param $route
@@ -25,7 +34,7 @@ trait ProductsAttribute {
 	 */
 	public function view($permission, $route) {
 		return '<a href="'.route($route, $this).'" class="text-primary pr-2">
-                    <i data-toggle="tooltip" data-placement="top" title="View" class="fas fa-eye"></i>
+                    <i data-toggle="tooltip" data-placement="top" title="View" class="fa fa-eye"></i>
                 </a>';
 	}
 	/**
@@ -34,7 +43,7 @@ trait ProductsAttribute {
 	public function editButton($permission, $route) {
 		if (\Gate::allows('products_edit')) {
 			return '<a href="'.route($route, $this).'" class="text-primary pr-2">
-                    <i data-toggle="tooltip" data-placement="top" title="Edit" class="fas fa-edit"></i>
+                    <i data-toggle="tooltip" data-placement="top" title="Edit" class="fa fa-edit"></i>
 				</a>';
 		}
 	}

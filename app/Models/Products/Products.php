@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Products;
+use App\Models\ProductImage\ProductImage;
 use App\Models\Products\Traits\Attribute\ProductsAttribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,16 +12,25 @@ class Products extends Model {
 		'id',
 		'title',
 		'description',
-        'category_id',
-        'seller_id',
-        'rate',
-        'sale_rate',
-        'status',
+		'category_id',
+		'seller_id',
+		'rate',
+		'sale_rate',
+		'status',
 		'created_at',
 		'updated_at',
 		'deleted_at',
 		'created_by',
 		'updated_by',
 	];
+
+	/**
+	 * Get Product Image
+	 *
+	 * @return $mix
+	 */
+	public function ProductImage() {
+		return $this->hasMany(ProductImage::class , 'product_id');
+	}
 
 }

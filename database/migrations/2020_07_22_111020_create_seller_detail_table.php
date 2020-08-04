@@ -17,6 +17,7 @@ class CreateSellerDetailTable extends Migration {
 				$table->foreign('user_id')->references('id')->on('users');
 				$table->string('shop_name');
 				$table->string('shop_url');
+				$table->string('phone_number');
 				$table->timestamps();
 				$table->softDeletes('deleted_at', 0);
 			});

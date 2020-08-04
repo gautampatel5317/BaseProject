@@ -203,35 +203,18 @@ class FileUploads {
 	 *
 	 * @return $this
 	 */
-	public function upload(UploadedFile $file, $manualFilename = null) {
+	public function upload(UploadedFile $file, $filePath, $manualFilename = null) {
 		$this->setFile($file);
-
-		$filePath = $this->getBasePath();
-		$filePath = $this->checkAndCreateDir($filePath);
 		if ($manualFilename) {
 			$fileName = $this->setFileName(null, $manualFilename);
 		} else {
 			$fileName = $this->setFileName();
 		}
-
 		$file = $this->file->move($filePath, $fileName);
-
 		if ($file) {
-			$this->makeThumbnail($fileName);
-
-			/*if(strpos($_SERVER["HTTP_REFERER"], 'special-management') !== false || strpos($_SERVER["HTTP_REFERER"], 'campaign') !== false)
-			{
-			$source = $filePath.'/'.$fileName;
-			$destination = $filePath.'/'.$fileName;
-			$quality = 90;
-
-			$this->compress($source, $destination, $quality);
-			}*/
-
 			return $fileName;
 		}
-
-		return $this;
+		return $fileName;
 	}
 
 	/**
