@@ -20,7 +20,9 @@ class ProductsTableController extends Controller {
 		return Datatables::of($data)
 			->escapeColumns(['category_id'])
 			->addColumn('image', function ($product) {
-				if (!empty($product->ProductImage)) {
+				if ($product->ProductImage->isEmpty()) {
+					return '<div class="fa-stack fa-3x"><i class="fa fa-camera-retro fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x"></i></div>';
+				} else {
 					$imageArr = $product->ProductImage->first();
 					if (file_exists($this->imagePath.$product->id.'/'.$imageArr->image)) {
 						$product_url = $this->imageHttpPath.'/'.$product->id.'/'.$imageArr->image;
