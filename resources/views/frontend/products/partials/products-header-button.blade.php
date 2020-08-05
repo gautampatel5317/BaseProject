@@ -1,1 +1,1 @@
-<a href="" class="btn btn-sm btn-primary" style="margin-left: 604px;"><i class="mr-1 fa fa-plus"></i> {{trans('Create Product')}}</a>
+<a href="{{ route('products.create') }}" class="btn btn-sm btn-primary" style="margin-left: 604px;"><i class="mr-1 fa fa-plus"></i> {{trans('Create Product')}}</a>

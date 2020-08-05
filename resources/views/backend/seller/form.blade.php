@@ -63,7 +63,7 @@
 
 <div class="form-group {{ $errors->has('phone_number') ? 'has-error' : '' }}">
     <label for="phone_number" class="required">{{ trans('global.phone_number') }}</label>
-    <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ old('phone_number', isset($seller) ? $seller->phone_number : '') }}">
+    <input type="number" id="phone_number" name="phone_number" class="form-control" value="{{ old('phone_number', isset($seller) ? $seller->phone_number : '') }}" maxlength="10" minlength="10">
     @if($errors->has('phone_number'))
     <p class="error-block">
         {{ $errors->first('phone_number') }}

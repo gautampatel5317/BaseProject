@@ -26,8 +26,8 @@ class ProductsController extends Controller
     public function __construct(ProductsRepository $model)
     {
         $this->model = $model;
-        $this->imagePath = public_path('images/product/');
-        $this->imageHttpPath = url('/images/product');
+        $this->imagePath = public_path(config('path.upload.product'));
+        $this->imageHttpPath = url(config('path.upload.product'));
     }
 
     /**
@@ -79,11 +79,17 @@ class ProductsController extends Controller
         $productImage = [];
         if (!empty($images)) {
             foreach ($images as $image) {
-                $productImage[] = $this->imageHttpPath."/". $id . "/" . $image->image;
+                $path_parts = pathinfo($image->image);
+                $fileExtension = $path_parts['extension'];
+                if(in_array($fileExtension,array('pdf','jpg', 'jpeg', 'png','jpg','bmp','gif','xls','xlsx','doc','docx','txt'))){
+                    $productImage[] = $this->imageHttpPath."/". $id . "/images/" . $image->image;
+                }else{
+                    $videoLink = $this->imageHttpPath."/". $id . "/video/" . $image->image;
+                }
             }
         }
         abort_unless(\Gate::allows('products_show'), 403);
-        return view('backend.products.show', compact('products', 'productImage'));
+        return view('backend.products.show', compact('products', 'productImage', 'videoLink'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -169,7 +175,7 @@ class ProductsController extends Controller
     public function deleteImage(Request $request){
         $input = $request->except('_token');
         DB::table('products_files')->where('image', '=', $input['image_name'])->delete();
-        File::delete($this->imagePath . '/' . $input['product_id'] . '/'.$input['image_name']);
+        File::delete($this->imagePath . '/' . $input['product_id'] . '/images/'.$input['image_name']);
         return "success";
     }
 

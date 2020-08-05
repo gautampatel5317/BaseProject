@@ -47,6 +47,15 @@
                         @endif
                     </td>
                 </tr>
+
+                @if(isset($videoLink) && $videoLink != "")
+                    <tr>
+                        <th>{{ trans('global.products.video') }}</th>
+                        <td>
+                        <a target = "_blank" href="{{ $videoLink }}">{{ trans('global.products.click_here') }}</a>
+                        </td>
+                    </tr>
+                @endif
                 
             </tbody>
         </table>

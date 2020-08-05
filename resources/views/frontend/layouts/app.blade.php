@@ -4,10 +4,12 @@
     <title>{{ app_name() }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css">
     <link rel="stylesheet" href="{{ \URL::to('/css/frontend/css/style.css') }}">
+    {{ Html::style('css/backend/backend-custom.css') }}
   </head>
   <body>
     <div class="wrapper d-flex align-items-stretch">
@@ -30,5 +32,6 @@
     <script src="{{ \URL::to('js/frontend/js/popper.js') }}"></script>
     <script src="{{ \URL::to('js/frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{ \URL::to('js/frontend/js/main.js')}}"></script>
+     {{ Html::script('js/backend/backend-custom.js') }}
   </body>
 </html>
