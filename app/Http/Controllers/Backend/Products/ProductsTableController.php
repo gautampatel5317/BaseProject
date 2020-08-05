@@ -23,8 +23,8 @@ class ProductsTableController extends Controller
         return Datatables::of($data)
             ->escapeColumns(['name'])
             ->addColumn('image', function ($data) {
-                if(file_exists($this->imagePath. $data->id .'/'. $data->image )) {
-                    $product_url = $this->imageHttpPath. '/'. $data->id .'/'. $data->image;
+                if(file_exists($this->imagePath. $data->id .'/images/'. $data->image )) {
+                    $product_url = $this->imageHttpPath. '/'. $data->id .'/images/'. $data->image;
                     return "<img src = '" . $product_url . "' width = '100px' >";
                 } else {
                     return '<div class="fa-stack fa-3x"><i class="fa fa-camera-retro fa-stack-1x"></i><i class="fa fa-ban fa-stack-2x"></i></div>';

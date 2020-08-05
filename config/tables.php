@@ -49,7 +49,7 @@ return [
 	 * Products table used to store users
 	 */
 	'products_table'       => 'products',
-	'products_image_table' => 'products_image',
+	'products_files_table' => 'products_files',
 	'category_table'       => 'category',
 	'seller_detail_table'  => 'seller_detail',
 ];

@@ -900,7 +900,9 @@ return [
     'products_management'   => 'Product Management',
     'products'                   => [
         'title_singular'             => 'Product',
-        'image' => 'Product Images',
+		'image' => 'Product Images',
+        'video' => 'Product Video',
+        'click_here' => 'Click Here',
         'fields'             => [
             'rate'              => 'Rate',
             'sale_rate'              => 'Sale Rate',
