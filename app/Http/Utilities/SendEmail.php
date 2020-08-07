@@ -57,7 +57,16 @@ class SendEmail {
 					$content         = str_replace('[app_name]', app_name(), $content);
 					$data['to']      = $data['email'];
 					$data['subject'] = $template->subject;
-					break;
+                    break;
+                    case '5':
+                        $content = $template->body;
+                        // Replace app name
+                        $content         = str_replace('[app_name]', app_name(), $content);
+                        $content         = str_replace('[password_reset_link]', $data['password_reset_link'], $content);
+                        // echo($content);
+                        $data['to']      = $data['email'];
+                        $data['subject'] = $template->subject;
+                        break;
 				default:
 					echo 'Default case';
 					break;

@@ -11,9 +11,9 @@ class EmailTemplateTypeTableSeeder extends Seeder {
 	 * @return void
 	 */
 	public function run() {
-		if (env('DB_CONNECTION') == 'mysql') {
+		// if (env('DB_CONNECTION') == 'mysql') {
 			DB::table(config('tables.email_templates.types_table'))->truncate();
-		}
+		// }
 
 		$data = [
 			[
@@ -36,6 +36,11 @@ class EmailTemplateTypeTableSeeder extends Seeder {
 
 			[
 				'name'       => 'Change Password',
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
+            ],
+            [
+				'name'       => 'Forgot Password',
 				'created_at' => Carbon::now(),
 				'updated_at' => Carbon::now(),
 			],

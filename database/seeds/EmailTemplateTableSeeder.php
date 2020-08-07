@@ -11,9 +11,9 @@ class EmailTemplateTableSeeder extends Seeder {
 	 * @return void
 	 */
 	public function run() {
-		if (env('DB_CONNECTION') == 'mysql') {
+		// if (env('DB_CONNECTION') == 'mysql') {
 			DB::table(config('tables.email_templates.table'))->truncate();
-		}
+		// }
 		$data = [
 			[
 				'title'   => 'User Registration',
@@ -284,6 +284,102 @@ class EmailTemplateTableSeeder extends Seeder {
 </tbody>
 </table>
 </center>',
+				'status'     => '1',
+				'created_by' => '1',
+				'updated_by' => null,
+				'created_at' => Carbon::now(),
+				'updated_at' => Carbon::now(),
+            ],
+            
+            [
+				'title'   => 'Forgot Password',
+				'type_id' => '5',
+				'subject' => 'Reset your Password',
+				'body'    => '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+                <html xmlns="http://www.w3.org/1999/xhtml">
+                
+                <head>
+                
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                
+                    <title>Forgot Password</title>
+                
+                    <style>
+                
+                        body {
+                
+                            background-color: #FFFFFF; padding: 0; margin: 0;
+                
+                        }
+                
+                    </style>
+                
+                </head>
+                
+                <body style="background-color: #FFFFFF; padding: 0; margin: 0;">
+                
+                <table border="0" cellpadding="0" cellspacing="10" height="100%" bgcolor="#FFFFFF" width="100%" style="max-width: 650px;" id="bodyTable">
+                
+                    <tr>
+                
+                        <td align="center" valign="top">
+                
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="emailContainer" style="font-family:Arial; color: #333333;">
+                                               
+                                <!-- Title -->
+                
+                                <tr>
+                
+                                    <td align="left" valign="top" colspan="2" style="border-bottom: 1px solid #CCCCCC; padding: 20px 0 10px 0;">
+                
+                                        <span style="font-size: 18px; font-weight: normal;">FORGOT PASSWORD</span>
+                
+                                    </td>
+                
+                                </tr>
+                
+                                <!-- Messages -->
+                
+                                <tr>
+                
+                                    <td align="left" valign="top" colspan="2" style="padding-top: 10px;">
+                
+                                        <span style="font-size: 12px; line-height: 1.5; color: #333333;">
+                
+                                            We have sent you this email in response to your request to reset your password on [app_name]. After you reset your password, any credit card information stored in My Account will be deleted as a security measure.
+                
+                                            <br/><br/>
+                
+                                            To reset your password for [app_name], please follow the link below:
+                
+                                            <a href="[password_reset_link]">[password_reset_link]</a>
+                
+                                            <br/><br/>
+                
+                                            We recommend that you keep your password secure and not share it with anyone.If you feel your password has been compromised, you can change it by going to your [app_name] My Account Page and clicking on the "Change Email Address or Password" link.
+                
+                                            <br/><br/>
+                
+                                            [app_name] Customer Service
+                
+                                        </span>
+                
+                                    </td>
+                
+                                </tr>
+                
+                            </table>
+                
+                        </td>
+                
+                    </tr>
+                
+                </table>
+                
+                </body>
+                
+                </html>',
 				'status'     => '1',
 				'created_by' => '1',
 				'updated_by' => null,
