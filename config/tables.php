@@ -22,6 +22,14 @@ return [
 	 */
 	'settings_table' => 'setting',
 	/**
+	 * Cms Table
+	 */
+	'cms_pages_table' => 'cms_pages',
+	/**
+	 * Cms Translations Table
+	 */
+	'cms_translations_table' => 'cms_translations',	
+	/**
 	 * Country Tables
 	 */
 	'country_table' => 'countries',

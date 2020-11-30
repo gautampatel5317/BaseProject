@@ -3,9 +3,9 @@
 return [
     'backend' => [
         'cms' => [
-            'title' => 'The Title field is required.',
-            'description' => 'The Description field is required.',
-            'seo_title'=>'The Seo Title field is required.'
+            'title' => 'El campo Título es obligatorio.',
+            'description' => 'El campo Descripción es obligatorio.',
+            'seo_title'=>'El campo Título de SEO es obligatorio.'
         ],
     ],
     'accepted' => 'The :attribute must be accepted.',

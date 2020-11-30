@@ -1,20 +1,37 @@
-<div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-    <label for="title" class = "required">{{ trans('global.title') }}</label>
-    <input type="text" id="title" name="title" class="form-control" value="{{ old('title', isset($cms) ? $cms->title : '') }}">
-    @if($errors->has('title'))
-    <p class="help-block">
-        {{ $errors->first('title') }}
-    </p>
-    @endif
-</div>
-<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-    <label for="description" class = "required">{{ trans('global.description') }}</label>
-    <textarea id="description" name="description" class="form-control ckeditor">{{ old('description', isset($cms) ? $cms->description : '') }}</textarea>
-    @if($errors->has('description'))
-    <p class="help-block">
-        {{ $errors->first('description') }}
-    </p>
-    @endif
+<ul class="nav nav-tabs" id="myLanguage" role="tablist">
+    @foreach(config('panel.available_languages') as $langLocale => $langName)
+        <li class="nav-item">
+            <a class="nav-link {{ (app()->getLocale() == $langLocale ? 'active' : '') }}" id="{{$langLocale}}-tab" data-toggle="tab" href="#{{$langLocale}}" role="tab" aria-controls="$langLocale" aria-selected="{{ (app()->getLocale() == $langLocale ? 'true' : 'false') }}">{{ $langName }}</a>
+        </li>
+    @endforeach
+ </ul>
+ <div class="tab-content" id="myLanguageContent">
+
+    @foreach(config('panel.available_languages') as $langLocale => $langName)
+        <div class="tab-pane fade {{ (app()->getLocale() == $langLocale ? 'show active' : '') }}" id="{{$langLocale}}" role="tabpanel" aria-labelledby="{{$langLocale}}-tab">
+            <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+                <label for="title_{{$langLocale}}" class="required">{{ trans('labels.backend.cms.fields.title') }}</label>
+                <input type="text" id="title_{{$langLocale}}" name="title[{{$langLocale}}]" class="form-control" value="{{ old('title[$langLocale]', isset($cmsDesc) ? $cmsDesc['title'][$langLocale] : '') }}" required  data-msg-required="{{ trans('validation.backend.cms.title')}}">
+                @if($errors->has('title['.$langLocale.']'))
+                <p class="help-block">
+                    {{ $errors->first('title['.$langLocale.']') }}
+                </p>
+                @endif
+            </div>
+            
+            <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+                <label for="description_{{$langLocale}}" class = "required">{{ trans('labels.backend.cms.fields.description') }}</label>
+                <textarea id="description_{{$langLocale}}" name="description[{{$langLocale}}]" class="description form-control" required  data-msg-required="{{ trans('validation.backend.cms.description')}}">{{ old('description[$langLocale]', isset($cmsDesc) ? $cmsDesc['description'][$langLocale] : '') }}</textarea>
+                @if($errors->has('description'))
+                <p class="help-block">
+                    {{ $errors->first('description') }}
+                </p>
+                @endif
+            </div>
+
+        </div>
+    @endforeach
+
 </div>
 
 <div class="form-group {{ $errors->has('cannonical_link') ? 'has-error' : '' }}">
@@ -68,7 +85,7 @@
 </div>
 
 <div class="card-footer text-center">
-    <a href="{{ route('admin.customers.index') }}" class="btn btn-danger ml-2">Cancel</a>
+    <a href="{{ route('admin.cms.index') }}" class="btn btn-danger ml-2">Cancel</a>
     <input class="btn btn-primary" type="submit" value="{{ isset($cms)  ?  trans('global.update') :trans('global.save') }}">
 </div>
 
@@ -76,6 +93,9 @@
 @section('after-scripts')
 <script type="text/javascript">
     $(document).ready(function(){
+        tinymce.init({
+            selector: 'textarea.description',
+        });
         Backend.Validate.Cms();
         ClassicEditor.create(document.querySelector('.ckeditor1'));
     });

@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th>
-                                    {{ trans('global.title') }}
+                                    {{ trans('labels.backend.cms.fields.title') }}
                                 </th>
                                 <th>
                                     {{ trans('global.cms.fields.seo_title') }}
