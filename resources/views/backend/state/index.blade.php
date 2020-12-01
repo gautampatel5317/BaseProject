@@ -12,7 +12,7 @@
             <div class="card-tools">
                 @can('state_create')
                 <a class="btn btn-primary btn-sm" href="{{ route("admin.state.create") }}">
-                    <i class="mr-1 fas fa-plus"></i>{{ trans('global.add') }} {{ trans('global.state.title_singular') }}
+                    <i class="mr-1 fas fa-plus"></i>{{ trans('buttons.backend.state.add_page') }}
                 </a>
                 @endcan
             </div>

@@ -1,13 +1,27 @@
-<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-    <label for="name" class = "required">{{ trans('global.state.fields.name') }}</label>
-    <input type="text" id="name" name="name" class="form-control" value="{{ old('name', isset($state) ? $state->name : '') }}">
-    @if($errors->has('name'))
-    <p class="help-block">
-        {{ $errors->first('name') }}
-    </p>
-    @endif
-</div>
+<ul class="nav nav-tabs" id="myLanguage" role="tablist">
+    @foreach(config('panel.available_languages') as $langLocale => $langName)
+        <li class="nav-item">
+            <a class="nav-link {{ (app()->getLocale() == $langLocale ? 'active' : '') }}" id="{{$langLocale}}-tab" data-toggle="tab" href="#{{$langLocale}}" role="tab" aria-controls="$langLocale" aria-selected="{{ (app()->getLocale() == $langLocale ? 'true' : 'false') }}">{{ $langName }}</a>
+        </li>
+    @endforeach
+ </ul>
+ <div class="tab-content" id="myLanguageContent">
 
+    @foreach(config('panel.available_languages') as $langLocale => $langName)
+        <div class="tab-pane fade {{ (app()->getLocale() == $langLocale ? 'show active' : '') }}" id="{{$langLocale}}" role="tabpanel" aria-labelledby="{{$langLocale}}-tab">
+            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+                <label for="name_{{$langLocale}}" class = "required">{{ trans('global.state.fields.name') }}</label>
+                <input type="text" id="name_{{$langLocale}}" name="name[{{$langLocale}}]" class="form-control" value="{{ old('name[$langLocale]', isset($stateName) ? $stateName['name'][$langLocale] : '') }}" required data-msg-required="{{ trans('validation.backend.state.title')}}">
+                @if($errors->has('name'))
+                <p class="help-block">
+                    {{ $errors->first('name['.$langLocale.']') }}
+                </p>
+                @endif
+            </div>
+        </div>
+    @endforeach
+
+</div>
 <div class="form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
     <label for="country_id" class = "required">{{ trans('global.country_name') }}</label>
     @php
@@ -43,8 +57,8 @@
 </div>
 
 <div class="card-footer text-center">
-    <a href="{{ route('admin.state.index') }}" class="btn btn-danger ml-2">Cancel</a>
-    <input class="btn btn-primary" type="submit" value="{{ isset($state)  ?  trans('global.update') :trans('global.save') }}">
+    <a href="{{ route('admin.state.index') }}" class="btn btn-danger ml-2">{{ trans('buttons.backend.state.cancel')}}</a>
+    <input class="btn btn-primary" type="submit" value="{{ isset($state)  ?  trans('buttons.backend.state.update') :trans('buttons.backend.state.save') }}">
 </div>
 
 <!-- JAvascript Included-->

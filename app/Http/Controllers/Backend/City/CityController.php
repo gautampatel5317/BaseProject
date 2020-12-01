@@ -71,7 +71,10 @@ class CityController extends Controller
     {
         $countryData = $country->getCountry();
         abort_unless(\Gate::allows('city_edit'), 403);
-        return view('backend.city.edit', compact('city', 'countryData'));
+
+        $city = City::find($city->id);
+        $cityName = $this->model->getCityName($city->id);
+        return view('backend.city.edit', compact('city', 'countryData','cityName'));
     }
     /**
      * Update the specified resource in storage.

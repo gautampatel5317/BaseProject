@@ -35,7 +35,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('global.user.roles') }}
+                            {{ trans('global.user.fields.roles') }}
                         </th>
                         <td>
                             @foreach($user->roles as $id => $roles)

@@ -10,7 +10,7 @@
      <div class="card-header">
         <div class="card-tools">
           @can('cms_create')
-          <a href="{{route('admin.cms.create')}}" class="btn btn-primary btn-sm"><i class="mr-1 fas fa-plus"></i>{{ trans('global.add') }} {{ trans('global.cms.title_singular') }}</a>
+          <a href="{{route('admin.cms.create')}}" class="btn btn-primary btn-sm"><i class="mr-1 fas fa-plus"></i>{{ trans('buttons.backend.cms.add_page')}}</a>
           @endcan
         </div>
      </div>

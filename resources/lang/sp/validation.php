@@ -7,6 +7,15 @@ return [
             'description' => 'El campo Descripción es obligatorio.',
             'seo_title'=>'El campo Título de SEO es obligatorio.'
         ],
+        'country' => [
+            'title' => 'El campo Nombre es obligatorio.',
+        ],
+        'state' => [
+            'title' => 'El campo Nombre es obligatorio.',
+        ],
+        'city' => [
+            'title' => 'El campo Nombre es obligatorio.',
+        ],
     ],
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',

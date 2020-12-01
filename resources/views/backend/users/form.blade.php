@@ -1,5 +1,5 @@
 <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">
-    <label for="first_name">{{ trans('First Name') }}*</label>
+    <label for="first_name">{{ trans('global.user.fields.first_name') }}*</label>
     <input type="text" id="first_name" name="first_name" class="form-control" value="{{ old('first_name', isset($user) ? $user->first_name : '') }}" placeholder="First Name">
     @if($errors->has('first_name'))
     <p class="help-block">
@@ -11,7 +11,7 @@
     </p>
 </div>
 <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
-    <label for="last_name">{{ trans('Last Name') }}*</label>
+    <label for="last_name">{{ trans('global.user.fields.last_name') }}*</label>
     <input type="text" id="last_name" name="last_name" class="form-control" value="{{ old('last_name', isset($user) ? $user->last_name : '') }}" placeholder="Last Name">
     @if($errors->has('last_name'))
     <p class="help-block">

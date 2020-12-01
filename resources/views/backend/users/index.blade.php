@@ -27,8 +27,8 @@
                         <thead>
                             <tr>
                               <th width="10"></th>
-                                <th>{{ trans('First Name') }}</th>
-                                <th>{{ trans('Last Name') }}</th>
+                                <th>{{ trans('global.user.fields.first_name') }}</th>
+                                <th>{{ trans('global.user.fields.last_name') }}</th>
                                 <th>{{ trans('global.user.fields.email') }}</th>
                                 <th>{{ trans('global.user.fields.email_verified_at') }}</th>
                                 <th>{{ trans('global.user.fields.roles') }}</th>

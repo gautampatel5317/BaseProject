@@ -12,7 +12,7 @@
             <div class="card-tools">
                 @can('city_create')
                 <a class="btn btn-primary btn-sm" href="{{ route("admin.city.create") }}">
-                    <i class="mr-1 fas fa-plus"></i>{{ trans('global.add') }} {{ trans('global.city.title_singular') }}
+                    <i class="mr-1 fas fa-plus"></i>{{ trans('buttons.backend.city.add_page')}}
                 </a>
                 @endcan
             </div>

@@ -7,7 +7,17 @@ return [
             'description' => 'The Description field is required.',
             'seo_title'=>'The Seo Title field is required.'
         ],
+        'country' => [
+            'title' => 'The Name field is required.',
+        ],
+        'state' => [
+            'title' => 'The Name field is required.',
+        ],
+        'city' => [
+            'title' => 'The Name field is required.',
+        ],
     ],
+ 
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',

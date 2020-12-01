@@ -69,8 +69,11 @@ class StateController extends Controller
     public function edit(State $state, CountryRepository $country)
     {
         $countryData = $country->getCountry();
-        abort_unless(\Gate::allows('state_edit'), 403);
-        return view('backend.state.edit', compact('state', 'countryData'));
+        abort_unless(\Gate::allows('country_edit'), 403);
+        
+        $state = State::find($state->id);
+        $stateName = $this->model->getStateName($state->id);
+        return view('backend.state.edit', compact('state', 'countryData', 'stateName'));
     }
     /**
      * Update the specified resource in storage.
@@ -82,7 +85,7 @@ class StateController extends Controller
     public function update(UpdateStateRequest $request, State $state)
     {
         abort_unless(\Gate::allows('state_edit'), 403);
-        $input   = $request->except('_token');
+        $input = $request->except('_token');
         $this->model->update($input, $state);
         flash(trans('alerts.state_update_message'))->success()->important();
         return redirect()->route('admin.state.index');
@@ -99,7 +102,7 @@ class StateController extends Controller
         $this->model->destroy($state);
         return "success";
     }
-    
+
     public function changeStatus(Request $request)
     {
         $input = $request->except('_token');

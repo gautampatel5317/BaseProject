@@ -97,7 +97,7 @@
                 <li class="nav-item">
                     <a href="{{ route("admin.cms.index") }}" class="nav-link {{ request()->is('admin/cms') || request()->is('admin/cms/*') ? 'active' : '' }}">
                         <i class="fa fa-file"></i>
-                        <p><span>{{ trans('global.pages') }}</span></p>
+                        <p><span>{{ trans('global.cms_pages') }}</span></p>
                     </a>
                 </li>
                 @endcan
@@ -138,7 +138,7 @@
                     </ul>
                 </li>
 
-                @can('products_access')
+                <!-- @can('products_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.products.index") }}" class="nav-link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'active' : '' }}">
                             <i class="fa fa-tags"></i>
@@ -171,7 +171,7 @@
                             <p><span>{{ trans('global.buyer.title_singular') }}</span></p>
                         </a>
                     </li>
-                @endcan
+                @endcan -->
 
                 <li class="nav-item">
                     <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

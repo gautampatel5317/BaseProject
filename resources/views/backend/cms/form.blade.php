@@ -85,8 +85,8 @@
 </div>
 
 <div class="card-footer text-center">
-    <a href="{{ route('admin.cms.index') }}" class="btn btn-danger ml-2">Cancel</a>
-    <input class="btn btn-primary" type="submit" value="{{ isset($cms)  ?  trans('global.update') :trans('global.save') }}">
+    <a href="{{ route('admin.cms.index') }}" class="btn btn-danger ml-2">{{ trans('buttons.backend.cms.cancel')}}</a>
+    <input class="btn btn-primary" type="submit" value="{{ isset($cms)  ?  trans('buttons.backend.cms.update') :trans('buttons.backend.cms.save') }}">
 </div>
 
 <!-- JAvascript Included-->

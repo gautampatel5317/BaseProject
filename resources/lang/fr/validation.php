@@ -7,6 +7,15 @@ return [
             'description' => 'Le champ Description est obligatoire.',
             'seo_title'=>'Le champ Titre du référencement est obligatoire.'
         ],
+        'country' => [
+            'title' => 'Il est requis de compléter le champ correspondant au nom.',
+        ],
+        'state' => [
+            'title' => 'Il est requis de compléter le champ correspondant au nom.',
+        ],
+        'city' => [
+            'title' => 'Il est requis de compléter le champ correspondant au nom.',
+        ],
     ],
     'accepted' => 'The :attribute must be accepted.',
     'active_url' => 'The :attribute is not a valid URL.',
